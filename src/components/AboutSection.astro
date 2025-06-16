@@ -1,0 +1,131 @@
+---
+---
+
+<section id="about" class="about-section">
+  <div class="container">
+    <h2 class="section-title">About Me</h2>
+    <div class="about-content">
+      <div class="about-image">
+        <img src="/profile-placeholder.jpg" alt="Profile Image" />
+      </div>
+      <div class="about-text">
+        <p>
+          Hello! I'm a passionate developer and designer with a love for creating beautiful, 
+          functional digital experiences. With expertise in web development, I focus on building 
+          accessible, inclusive products and digital experiences.
+        </p>
+        <p>
+          My background in computer science combined with my interest in user experience design 
+          allows me to bridge the gap between technical and design thinking. I enjoy solving 
+          complex problems with clean, efficient code and thoughtful user interfaces.
+        </p>
+        <p>
+          When I'm not coding, you can find me exploring new technologies, contributing to 
+          open-source projects, or enjoying nature hikes.
+        </p>
+        <div class="skills">
+          <h3>Skills</h3>
+          <ul>
+            <li>JavaScript/TypeScript</li>
+            <li>React.js</li>
+            <li>Node.js</li>
+            <li>HTML/CSS</li>
+            <li>UI/UX Design</li>
+            <li>Responsive Web Design</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-section {
+    padding: 6rem 0;
+    background-color: #f8f9fa;
+  }
+  
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    position: relative;
+  }
+  
+  .section-title::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background-color: #64ffda;
+  }
+  
+  .about-content {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+  }
+  
+  .about-image {
+    flex: 1;
+    max-width: 300px;
+  }
+  
+  .about-image img {
+    width: 100%;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .about-text {
+    flex: 2;
+  }
+  
+  .about-text p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #333;
+  }
+  
+  .skills h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.3rem;
+  }
+  
+  .skills ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .skills li {
+    background-color: #e9ecef;
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    font-size: 0.9rem;
+  }
+  
+  @media (max-width: 768px) {
+    .about-content {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .about-image {
+      margin-bottom: 2rem;
+    }
+  }
+</style>

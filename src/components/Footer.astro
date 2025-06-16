@@ -1,0 +1,59 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <p>&copy; {currentYear} Antiraedus. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/blog">Blog</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: #111;
+    color: #fff;
+    padding: 2rem 0;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .footer-links a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-links a:hover {
+    color: #64ffda;
+  }
+  
+  @media (max-width: 768px) {
+    .footer-content {
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+    }
+  }
+</style>

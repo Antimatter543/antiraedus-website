@@ -1,0 +1,94 @@
+---
+---
+
+<section id="home" class="hero-section">
+  <div class="container">
+    <div class="poem">
+      <h2>Welcome to My World</h2>
+      <p>
+        In the realm of code and design,<br>
+        Where creativity and logic intertwine,<br>
+        I build dreams with digital brush strokes,<br>
+        Turning ideas into realities, line by line.
+      </p>
+      <p>
+        A craftsman of the virtual space,<br>
+        Weaving functions with artistic grace,<br>
+        Welcome to my digital portfolio,<br>
+        Where passion and profession embrace.
+      </p>
+      <div class="scroll-indicator">
+        <p>Scroll to explore</p>
+        <div class="arrow">↓</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .poem {
+    animation: fadeIn 2s ease;
+  }
+  
+  .poem h2 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+  }
+  
+  .poem p {
+    font-size: 1.5rem;
+    line-height: 2.2rem;
+    margin-bottom: 2rem;
+    font-style: italic;
+  }
+  
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+  }
+  
+  .scroll-indicator p {
+    font-size: 1rem;
+    opacity: 0.7;
+    margin-bottom: 0.5rem;
+  }
+  
+  .arrow {
+    font-size: 1.5rem;
+    animation: bounce 2s infinite;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-20px); }
+    60% { transform: translateY(-10px); }
+  }
+</style>

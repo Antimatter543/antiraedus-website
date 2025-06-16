@@ -1,0 +1,194 @@
+---
+---
+
+<section id="projects" class="projects-section">
+  <div class="container">
+    <h2 class="section-title">My Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-image">
+          <img src="/project-placeholder-1.jpg" alt="Project 1" />
+        </div>
+        <div class="project-content">
+          <h3>Project One</h3>
+          <p>A responsive web application built with React.js and Node.js that helps users track their daily habits and productivity goals.</p>
+          <div class="project-tags">
+            <span>React</span>
+            <span>Node.js</span>
+            <span>MongoDB</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="btn">View Project</a>
+            <a href="#" class="btn btn-outline">Source Code</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="project-card">
+        <div class="project-image">
+          <img src="/project-placeholder-2.jpg" alt="Project 2" />
+        </div>
+        <div class="project-content">
+          <h3>Project Two</h3>
+          <p>An e-commerce platform with a focus on user experience and performance optimization, featuring a custom shopping cart and payment integration.</p>
+          <div class="project-tags">
+            <span>TypeScript</span>
+            <span>Next.js</span>
+            <span>Stripe</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="btn">View Project</a>
+            <a href="#" class="btn btn-outline">Source Code</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="project-card">
+        <div class="project-image">
+          <img src="/project-placeholder-3.jpg" alt="Project 3" />
+        </div>
+        <div class="project-content">
+          <h3>Project Three</h3>
+          <p>A progressive web app that allows users to search and filter through a large dataset of information with real-time updates and offline capabilities.</p>
+          <div class="project-tags">
+            <span>Vue.js</span>
+            <span>Firebase</span>
+            <span>PWA</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="btn">View Project</a>
+            <a href="#" class="btn btn-outline">Source Code</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .projects-section {
+    padding: 6rem 0;
+    background-color: #fff;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    position: relative;
+  }
+  
+  .section-title::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background-color: #64ffda;
+  }
+  
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+  
+  .project-card {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .project-image {
+    height: 200px;
+    overflow: hidden;
+  }
+  
+  .project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .project-card:hover .project-image img {
+    transform: scale(1.05);
+  }
+  
+  .project-content {
+    padding: 1.5rem;
+  }
+  
+  .project-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .project-content p {
+    color: #555;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+  
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .project-tags span {
+    background-color: #f0f0f0;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    color: #333;
+  }
+  
+  .project-links {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .btn {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    background-color: #64ffda;
+    color: #000;
+  }
+  
+  .btn-outline {
+    background-color: transparent;
+    border: 1px solid #64ffda;
+    color: #64ffda;
+  }
+  
+  .btn:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
+  }
+  
+  @media (max-width: 768px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

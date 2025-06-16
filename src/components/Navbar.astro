@@ -1,0 +1,68 @@
+---
+---
+
+<nav class="navbar">
+  <div class="container">
+    <div class="logo">
+      <a href="/">Antiraedus</a>
+    </div>
+    <div class="nav-links">
+      <a href="/#home">Home</a>
+      <a href="/#about">About</a>
+      <a href="/#projects">Projects</a>
+      <a href="/blog">Blog</a>
+      <a href="/#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    padding: 1rem 0;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    color: #64ffda;
+  }
+  
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
+  }
+</style>
