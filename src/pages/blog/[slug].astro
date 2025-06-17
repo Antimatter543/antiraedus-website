@@ -1,0 +1,148 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+// Generate static paths for all blog posts
+export async function getStaticPaths() {  const blogEntries = await getCollection('blog', ({ data }) => {
+    // Filter out draft posts in production
+    return process.env.NODE_ENV === 'production' ? !data.draft : true;
+  });
+  
+  return blogEntries.map(entry => ({
+    params: { slug: entry.slug }, 
+    props: { entry },
+  }));
+}
+
+// Get blog post data from the props
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+// Format the publication date
+const formattedDate = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+}).format(entry.data.pubDate);
+---
+
+<Layout title={`${entry.data.title} | Blog | Antiraedus`} description={entry.data.description}>
+  <main class="blog-post">
+    <article>
+      <div class="container">
+        <div class="blog-header">
+          <h1>{entry.data.title}</h1>
+          <div class="blog-meta">
+            <span class="publish-date">
+              <time datetime={entry.data.pubDate.toISOString()}>
+                {formattedDate}
+              </time>
+            </span>
+            {entry.data.author && <span class="author">by {entry.data.author}</span>}
+          </div>
+          
+          {entry.data.heroImage && (
+            <div class="featured-image">
+              <img src={entry.data.heroImage} alt={entry.data.title} />
+            </div>
+          )}
+        </div>
+        
+        <div class="blog-content">
+          <Content />
+        </div>
+        
+        {entry.data.tags && entry.data.tags.length > 0 && (
+          <div class="blog-tags">
+            <h3>Tagged with:</h3>
+            <div class="tag-list">
+              {entry.data.tags.map((tag: string) => (
+                <a href={`/blog/tag/${tag}`} class="tag">#{tag}</a>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  .blog-post {
+    padding: 2rem 0;
+  }
+  
+  .blog-header {
+    margin-bottom: 2rem;
+  }
+  
+  .blog-meta {
+    margin: 1rem 0;
+    color: #666;
+    font-size: 0.9rem;
+  }
+  
+  .blog-meta > span:not(:last-child)::after {
+    content: "•";
+    margin: 0 0.5rem;
+  }
+  
+  .featured-image {
+    margin: 2rem 0;
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+  
+  .featured-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .blog-content {
+    line-height: 1.8;
+    font-size: 1.1rem;
+  }
+  
+  .blog-content h2 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .blog-content p {
+    margin-bottom: 1.5rem;
+  }
+  
+  .blog-content pre {
+    border-radius: 0.5rem;
+    margin: 2rem 0;
+  }
+  
+  .blog-tags {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eaeaea;
+  }
+  
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background-color: #f4f4f4;
+    border-radius: 2rem;
+    color: #333;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: background-color 0.2s;
+  }
+  
+  .tag:hover {
+    background-color: #e0e0e0;
+  }
+</style>

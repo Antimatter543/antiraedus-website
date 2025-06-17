@@ -53,9 +53,13 @@ const duration = getProjectDuration(entry.data.startDate, entry.data.endDate);
             )}
           </div>
         </div>
-        
-        <div class="project-hero">
+          <div class="project-hero">
           <img src={entry.data.image} alt={entry.data.imageAlt} class="hero-image" />
+        </div>
+        
+        <div class="case-study-intro">
+          <h2 class="case-study-heading">Case Study</h2>
+          <p class="intro-text">Explore the detailed case study below to learn about the challenges, solutions, and outcomes of this project.</p>
         </div>
         
         <div class="project-tags-container">
@@ -161,6 +165,26 @@ const duration = getProjectDuration(entry.data.startDate, entry.data.endDate);
     height: auto;
     max-height: 500px;
     object-fit: cover;
+  }
+  
+  .case-study-intro {
+    margin: 2rem 0;
+    text-align: center;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--color-border, #eee);
+  }
+  
+  .case-study-heading {
+    font-size: 1.8rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-primary, #4a6cf7);
+  }
+  
+  .intro-text {
+    font-size: 1.1rem;
+    color: var(--color-text-alt, #666);
+    max-width: 700px;
+    margin: 0 auto;
   }
   
   .project-tags-container {

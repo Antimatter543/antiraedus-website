@@ -1,10 +1,9 @@
 ---
-layout: ../../layouts/BlogPost.astro
 title: "Getting Started with Astro"
 description: "Learn how to build static sites with Astro, a new modern static site builder."
-publishDate: "2025-06-15"
+pubDate: "2025-06-15"
 author: "Your Name"
-image: "/blog/astro-blog.jpg"
+heroImage: "/blog/astro-blog.jpg"
 tags: ["astro", "web development", "javascript"]
 ---
 
