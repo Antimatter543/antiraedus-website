@@ -1,192 +1,201 @@
 ---
+import { getFeaturedProjects, getStatusBadgeClass } from '../utils/projects';
+
+// Get featured projects for the homepage
+const featuredProjects = await getFeaturedProjects();
+
+// Limit to 3 projects for homepage
+const displayedProjects = featuredProjects.slice(0, 3);
 ---
 
 <section id="projects" class="projects-section">
   <div class="container">
-    <h2 class="section-title">My Projects</h2>
+    <h2 class="section-title">Featured Projects</h2>
     <div class="projects-grid">
-      <div class="project-card">
-        <div class="project-image">
-          <img src="/project-placeholder-1.jpg" alt="Project 1" />
-        </div>
-        <div class="project-content">
-          <h3>Project One</h3>
-          <p>A responsive web application built with React.js and Node.js that helps users track their daily habits and productivity goals.</p>
-          <div class="project-tags">
-            <span>React</span>
-            <span>Node.js</span>
-            <span>MongoDB</span>
+      {displayedProjects.map((project) => (
+        <div class="project-card">
+          <div class="project-image">
+            <img src={project.data.image} alt={project.data.imageAlt} />
+            <div class={`status-badge ${getStatusBadgeClass(project.data.status)}`}>
+              {project.data.status}
+            </div>
           </div>
-          <div class="project-links">
-            <a href="#" class="btn">View Project</a>
-            <a href="#" class="btn btn-outline">Source Code</a>
-          </div>
-        </div>
-      </div>
-      
-      <div class="project-card">
-        <div class="project-image">
-          <img src="/project-placeholder-2.jpg" alt="Project 2" />
-        </div>
-        <div class="project-content">
-          <h3>Project Two</h3>
-          <p>An e-commerce platform with a focus on user experience and performance optimization, featuring a custom shopping cart and payment integration.</p>
-          <div class="project-tags">
-            <span>TypeScript</span>
-            <span>Next.js</span>
-            <span>Stripe</span>
-          </div>
-          <div class="project-links">
-            <a href="#" class="btn">View Project</a>
-            <a href="#" class="btn btn-outline">Source Code</a>
+          <div class="project-content">
+            <h3>{project.data.title}</h3>
+            <p>{project.data.description}</p>
+            <div class="project-tags">
+              {project.data.technologies.map((tech) => (
+                <span>{tech}</span>
+              ))}
+            </div>
+            <div class="project-links">
+              {project.data.liveUrl && (
+                <a href={project.data.liveUrl} target="_blank" rel="noopener noreferrer" class="btn">View Project</a>
+              )}
+              {project.data.githubUrl && (
+                <a href={project.data.githubUrl} target="_blank" rel="noopener noreferrer" class="btn btn-outline">Source Code</a>
+              )}
+              <a href={`/projects/${project.slug}`} class="btn btn-secondary">Details</a>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <div class="project-card">
-        <div class="project-image">
-          <img src="/project-placeholder-3.jpg" alt="Project 3" />
-        </div>
-        <div class="project-content">
-          <h3>Project Three</h3>
-          <p>A progressive web app that allows users to search and filter through a large dataset of information with real-time updates and offline capabilities.</p>
-          <div class="project-tags">
-            <span>Vue.js</span>
-            <span>Firebase</span>
-            <span>PWA</span>
-          </div>
-          <div class="project-links">
-            <a href="#" class="btn">View Project</a>
-            <a href="#" class="btn btn-outline">Source Code</a>
-          </div>
-        </div>
-      </div>
+      ))}
+    </div>
+      <div class="view-all-projects">
+      <a href="/projects" class="btn btn-large">View All Projects</a>
     </div>
   </div>
 </section>
 
 <style>
   .projects-section {
-    padding: 6rem 0;
-    background-color: #fff;
+    padding: 4rem 0;
   }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
-  
+
   .section-title {
     text-align: center;
-    font-size: 2.5rem;
     margin-bottom: 3rem;
-    position: relative;
   }
-  
-  .section-title::after {
-    content: "";
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50px;
-    height: 3px;
-    background-color: #64ffda;
-  }
-  
+
   .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 2rem;
+    margin-bottom: 3rem;
   }
-  
+
   .project-card {
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--color-bg-alt);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
-  
+
   .project-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
   }
-  
+
   .project-image {
     height: 200px;
-    overflow: hidden;
+    position: relative;
   }
-  
+
   .project-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
   }
-  
-  .project-card:hover .project-image img {
-    transform: scale(1.05);
+
+  .status-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.3rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    z-index: 2;
   }
-  
+
+  .status-completed {
+    background-color: #10b981;
+    color: white;
+  }
+
+  .status-in-progress {
+    background-color: #f59e0b;
+    color: white;
+  }
+
+  .status-planned {
+    background-color: #6366f1;
+    color: white;
+  }
+
   .project-content {
     padding: 1.5rem;
   }
-  
+
   .project-content h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.75rem;
-  }
-  
-  .project-content p {
-    color: #555;
+    margin-top: 0;
     margin-bottom: 1rem;
-    line-height: 1.6;
+    font-size: 1.5rem;
   }
-  
+
+  .project-content p {
+    color: var(--color-text-alt);
+    margin-bottom: 1.5rem;
+  }
+
   .project-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
     margin-bottom: 1.25rem;
   }
-  
+
   .project-tags span {
-    background-color: #f0f0f0;
+    background-color: var(--color-bg);
+    color: var(--color-primary);
     padding: 0.25rem 0.75rem;
-    border-radius: 15px;
-    font-size: 0.85rem;
-    color: #333;
+    border-radius: 20px;
+    font-size: 0.8rem;
   }
-  
+
   .project-links {
     display: flex;
-    gap: 1rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
   }
-  
+
   .btn {
+    display: inline-block;
     padding: 0.5rem 1rem;
     border-radius: 4px;
-    text-decoration: none;
-    font-weight: 500;
     font-size: 0.9rem;
-    transition: all 0.3s ease;
-    background-color: #64ffda;
-    color: #000;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
   }
-  
+
   .btn-outline {
-    background-color: transparent;
-    border: 1px solid #64ffda;
-    color: #64ffda;
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
   }
-  
-  .btn:hover {
-    opacity: 0.85;
-    transform: translateY(-2px);
+
+  .btn-outline:hover {
+    background-color: var(--color-primary);
+    color: white;
   }
-  
-  @media (max-width: 768px) {
+
+  .btn-secondary {
+    background-color: var(--color-secondary);
+    color: white;
+  }
+
+  .btn-secondary:hover {
+    opacity: 0.9;
+  }
+
+  .view-all-projects {
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .btn-large {
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+    background-color: var(--color-primary);
+    color: white;
+  }
+
+  .btn-large:hover {
+    opacity: 0.9;
+  }  @media (max-width: 768px) {
     .projects-grid {
       grid-template-columns: 1fr;
     }
