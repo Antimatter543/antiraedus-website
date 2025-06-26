@@ -7,7 +7,7 @@ technologies: ["Next.js", "TypeScript", "Stripe", "PostgreSQL", "Prisma", "Tailw
 liveUrl: "https://ecommerce-demo.vercel.app"
 githubUrl: "https://github.com/yourusername/ecommerce-platform"
 featured: true
-status: "completed"
+status: "planned"
 startDate: "2024-02-10"
 endDate: "2024-06-15"
 category: "E-Commerce"
@@ -16,7 +16,7 @@ category: "E-Commerce"
 # E-Commerce Platform
 
 ## Project Overview
-
+asdasd
 A full-stack e-commerce platform built with modern web technologies, designed to provide a seamless shopping experience for customers and powerful management tools for administrators. The platform handles everything from product catalog management to order processing and payment integration.
 
 ## 🚀 Key Features

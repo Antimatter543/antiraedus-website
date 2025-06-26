@@ -53,6 +53,7 @@ const displayedProjects = featuredProjects.slice(0, 3);
 <style>
   .projects-section {
     padding: 4rem 0;
+    background-color: var(--color-bg);
   }
 
   .container {
@@ -163,31 +164,42 @@ const displayedProjects = featuredProjects.slice(0, 3);
   .btn {
     display: inline-block;
     padding: 0.5rem 1rem;
-    border-radius: 4px;
+    border-radius: 6px;
     font-size: 0.9rem;
     font-weight: 500;
     text-decoration: none;
     cursor: pointer;
     transition: all 0.2s ease;
+    background-color: var(--color-bg-card);
+    color: var(--color-text);
+    border: 1px solid var(--color-bg-card);
+  }
+
+  .btn:hover {
+    background-color: var(--color-bg-alt);
+    border-color: var(--primary-color);
   }
 
   .btn-primary {
-    background-color: var(--color-primary);
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--color-bg);
+    border-color: var(--primary-color);
   }
 
   .btn-primary:hover {
-    opacity: 0.9;
+    background-color: transparent;
+    color: var(--primary-color);
   }
 
   .btn-outline {
-    border: 1px solid var(--color-primary);
-    color: var(--color-primary);
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
   }
 
   .btn-outline:hover {
-    background-color: var(--color-primary);
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--color-bg);
   }
 
   .btn-secondary {
@@ -207,12 +219,14 @@ const displayedProjects = featuredProjects.slice(0, 3);
   .btn-large {
     padding: 0.75rem 2rem;
     font-size: 1.1rem;
-    background-color: var(--color-primary);
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--color-bg);
+    border-color: var(--primary-color);
   }
 
   .btn-large:hover {
-    opacity: 0.9;
+    background-color: transparent;
+    color: var(--primary-color);
   }
 
   .image-link {

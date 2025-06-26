@@ -1,34 +1,42 @@
-# Astro Starter Kit: Basics
+# Antiraedus Portfolio
 
-```sh
-npm create astro@latest -- --template basics
-```
+A personal portfolio website that serves as a digital representation of ambition, creativity, and technical prowess. Built with Astro for optimal performance and modern web standards.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## Vision
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+This website embodies the philosophy that a personal site should be a representation of your soul. It features an immersive, long-scroll experience with:
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+- **Epic Opening**: A floating poem about ambition with a sick space-esque background
+- **Personal Journey**: About section with timeline of experiences
+- **Written Thoughts**: Blog posts exploring ideas and insights
+- **Creative Works**: Showcase of projects and technical achievements
 
 ## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
 
 ```text
 /
 ├── public/
 │   └── favicon.svg
 ├── src/
+│   ├── components/          # Reusable UI components
+│   │   ├── HeroSection.astro
+│   │   ├── AboutSection.astro
+│   │   ├── ProjectsSection.astro
+│   │   └── ...
+│   ├── content/            # Content collections
+│   │   ├── blog/           # Blog posts (markdown)
+│   │   ├── projects/       # Project showcases (markdown)
+│   │   └── config.ts       # Content schemas
 │   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
+│   │   ├── Layout.astro    # Base layout with global styles
+│   │   └── BlogPost.astro  # Blog post layout
+│   ├── pages/
+│   │   ├── index.astro     # Epic scrolling homepage
+│   │   ├── blog.astro      # Blog listing
+│   │   └── projects.astro  # Projects showcase
+│   └── utils/              # Helper functions
 └── package.json
 ```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
 
 ## 🧞 Commands
 
@@ -43,6 +51,46 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
+## ✨ Features
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- **Content Collections**: Structured content management for blogs and projects
+- **Responsive Design**: Optimized for all devices and screen sizes  
+- **Performance Focused**: Built with Astro for optimal loading speeds
+- **SEO Optimized**: Proper meta tags and semantic HTML structure
+- **Space Theme**: Immersive cosmic design with floating elements
+- **Smooth Scrolling**: Epic long-scroll experience with scroll-triggered animations
+
+## 🛠️ Built With
+
+- **Astro** - Static site generator with modern tooling
+- **TypeScript** - Type-safe development
+- **Content Collections** - Structured content management
+- **CSS Custom Properties** - Maintainable theming system
+
+## 📝 Content Management
+
+### Adding Blog Posts
+Create new `.md` files in `src/content/blog/` with proper frontmatter:
+
+```yaml
+---
+title: "Your Post Title"
+description: "Brief description"
+pubDate: "2024-01-01"
+tags: ["tag1", "tag2"]
+---
+```
+
+### Adding Projects
+Create new `.md` files in `src/content/projects/` with project details:
+
+```yaml
+---
+title: "Project Name"
+description: "Project description"
+technologies: ["Tech1", "Tech2"]
+status: "completed"
+startDate: "2024-01-01"
+category: "web"
+---
+```
