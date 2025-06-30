@@ -5,19 +5,79 @@
   <canvas id="blackhole-canvas"></canvas>
   <div class="container">
     <div class="poem">
-      <h2>Welcome to My World</h2>
-      <p>
-        In the realm of code and design,<br>
-        Where creativity and logic intertwine,<br>
-        I build dreams with digital brush strokes,<br>
-        Turning ideas into realities, line by line.
-      </p>
-      <p>
-        A craftsman of the virtual space,<br>
-        Weaving functions with artistic grace,<br>
-        Welcome to my digital portfolio,<br>
-        Where passion and profession embrace.
-      </p>
+      <h2 class="ember-title">II. Emberborn</h2>
+      <p class="subtitle">—a poem of fire that does not yield</p>
+      
+      <div class="stanzas">
+        <p class="stanza">
+          Beneath the noise of the world,<br>
+          beneath the static of every wasted hour,<br>
+          there is a rhythm.<br>
+          A pulse, faint but unyielding.<br>
+          It does not scream.<br>
+          It does not ask permission.<br>
+          <span class="ember-word">It burns.</span>
+        </p>
+
+        <p class="stanza">
+          It is the hunger that speaks in still moments—<br>
+          when no one watches,<br>
+          when the world forgets you.<br>
+          It says:<br>
+          <em>You are not done.</em>
+        </p>
+
+        <p class="stanza">
+          Quiet ambition is not meek.<br>
+          It is not polite.<br>
+          It waits in shadows,<br>
+          but it does not sleep.
+        </p>
+
+        <p class="stanza">
+          It is the curl of smoke before the blaze,<br>
+          the held breath before the leap,<br>
+          the solitary candle in a room of dusk.<br>
+          <span class="ember-word">Small—but defiant.</span>
+        </p>
+
+        <p class="stanza">
+          There is a kind of fire<br>
+          that doesn't need applause.<br>
+          It lives in the bones of the stubborn,<br>
+          in the souls of the strange.<br>
+          It climbs out of cracked hearts<br>
+          and walks barefoot through ruin<br>
+          just to prove<br>
+          that it can.
+        </p>
+
+        <p class="stanza">
+          It doesn't ask,<br>
+          <em>Will I make it?</em><br>
+          It asks,<br>
+          <em>Will I burn long enough to find out?</em>
+        </p>
+
+        <p class="stanza">
+          So let them mock your pace.<br>
+          Let them say you're lost.<br>
+          You know better.<br>
+          You know this heat<br>
+          that grows in silence,<br>
+          that survives rain,<br>
+          that remembers every promise you ever made<br>
+          to yourself.
+        </p>
+
+        <p class="stanza final-stanza">
+          You are the flame no one saw coming.<br>
+          You are the ember that refused to die.<br>
+          You are the beat that keeps drumming<br>
+          in a world too deaf to listen.<br><br>
+          <span class="ember-word final-line">Let it burn.</span>
+        </p>
+      </div>
       <div class="scroll-indicator">
         <p>Scroll to explore</p>
         <div class="arrow">↓</div>
@@ -54,22 +114,100 @@
     padding: 2rem;
     position: relative;
     z-index: 1;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   
   .poem {
     animation: fadeIn 2s ease;
   }
   
-  .poem h2 {
-    font-size: 3rem;
-    margin-bottom: 2rem;
+  .ember-title {
+    font-size: 2.5rem;
+    margin-bottom: 0.3rem;
     font-weight: 600;
+    color: #ff6b35;
+    text-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
+    animation: emberGlow 3s ease-in-out infinite alternate;
   }
   
-  .poem p {
-    font-size: 1.5rem;
-    line-height: 2.2rem;
+  .subtitle {
+    font-size: 1.1rem;
     margin-bottom: 2rem;
+    color: #ff9a6b;
+    font-style: italic;
+    opacity: 0.9;
+  }
+  
+  .stanzas {
+    max-width: 800px;
+    margin: 0 auto;
+    max-height: 60vh;
+    overflow-y: auto;
+    padding-right: 1rem;
+    scrollbar-width: thin;
+    scrollbar-color: #ff6b35 transparent;
+  }
+  
+  .stanzas::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .stanzas::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .stanzas::-webkit-scrollbar-thumb {
+    background: #ff6b35;
+    border-radius: 4px;
+    opacity: 0.7;
+  }
+  
+  .stanzas::-webkit-scrollbar-thumb:hover {
+    background: #ff8c42;
+  }
+  
+  .stanza {
+    font-size: 1.1rem;
+    line-height: 1.6rem;
+    margin-bottom: 1.8rem;
+    color: #e6e6e6;
+    animation: stanzaFadeIn 1s ease forwards;
+    opacity: 0;
+  }
+  
+  .stanza:nth-child(1) { animation-delay: 0.5s; }
+  .stanza:nth-child(2) { animation-delay: 1s; }
+  .stanza:nth-child(3) { animation-delay: 1.5s; }
+  .stanza:nth-child(4) { animation-delay: 2s; }
+  .stanza:nth-child(5) { animation-delay: 2.5s; }
+  .stanza:nth-child(6) { animation-delay: 3s; }
+  .stanza:nth-child(7) { animation-delay: 3.5s; }
+  .stanza:nth-child(8) { animation-delay: 4s; }
+  
+  .ember-word {
+    color: #ff4500;
+    font-weight: 600;
+    text-shadow: 0 0 15px rgba(255, 69, 0, 0.7);
+    animation: emberPulse 2s ease-in-out infinite;
+  }
+  
+  .final-line {
+    font-size: 1.5rem;
+    color: #ff6b35;
+    text-shadow: 0 0 25px rgba(255, 107, 53, 0.8);
+    animation: finalEmberGlow 2s ease-in-out infinite alternate;
+  }
+  
+  .final-stanza {
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+  }
+  
+  .stanza em {
+    color: #ffb347;
     font-style: italic;
   }
   
@@ -95,6 +233,50 @@
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes stanzaFadeIn {
+    from { 
+      opacity: 0; 
+      transform: translateY(30px);
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes emberGlow {
+    0% { 
+      text-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
+      color: #ff6b35;
+    }
+    100% { 
+      text-shadow: 0 0 30px rgba(255, 107, 53, 0.8), 0 0 40px rgba(255, 69, 0, 0.3);
+      color: #ff8c42;
+    }
+  }
+  
+  @keyframes emberPulse {
+    0%, 100% { 
+      text-shadow: 0 0 15px rgba(255, 69, 0, 0.7);
+      transform: scale(1);
+    }
+    50% { 
+      text-shadow: 0 0 25px rgba(255, 69, 0, 1), 0 0 35px rgba(255, 107, 53, 0.5);
+      transform: scale(1.05);
+    }
+  }
+  
+  @keyframes finalEmberGlow {
+    0% { 
+      text-shadow: 0 0 25px rgba(255, 107, 53, 0.8);
+      color: #ff6b35;
+    }
+    100% { 
+      text-shadow: 0 0 40px rgba(255, 107, 53, 1), 0 0 60px rgba(255, 69, 0, 0.6);
+      color: #ff4500;
+    }
   }
   
   @keyframes bounce {
