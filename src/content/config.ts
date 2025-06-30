@@ -20,7 +20,7 @@ const projectsCollection = defineCollection({
   })
 });
 
-// 3. Define a schema for blog posts if needed
+// 3. Define a schema for blog posts
 const blogCollection = defineCollection({
   type: 'content',
   schema: z.object({
@@ -34,8 +34,24 @@ const blogCollection = defineCollection({
   }),
 });
 
-// 4. Export collections
+// 4. Define a schema for creative content
+const creativesCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    pubDate: z.string().transform((str) => new Date(str)),
+    updatedDate: z.string().transform((str) => new Date(str)).optional(),
+    category: z.enum(['poem', 'story', 'quote', 'thought']),
+    tags: z.array(z.string()).default([]),
+    draft: z.boolean().default(false),
+    featured: z.boolean().default(false),
+  }),
+});
+
+// 5. Export collections
 export const collections = {
   'projects': projectsCollection,
   'blog': blogCollection,
+  'creatives': creativesCollection,
 };

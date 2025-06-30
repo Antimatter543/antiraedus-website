@@ -1,0 +1,255 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+// Get all creative content, sorted by publication date
+const creatives = await getCollection('creatives', ({ data }) => {
+  // Filter out draft posts in production
+  return process.env.NODE_ENV === 'production' ? !data.draft : true;
+});
+
+// Sort creatives by publication date (newest first)
+const sortedCreatives = creatives.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+// Group by category
+const categories = ['poem', 'story', 'quote', 'thought'] as const;
+const creativesGrouped = categories.reduce((acc, category) => {
+  acc[category] = sortedCreatives.filter(item => item.data.category === category);
+  return acc;
+}, {} as Record<typeof categories[number], typeof sortedCreatives>);
+---
+
+<Layout title="Creatives | Antiraedus" description="Poems, stories, quotes, and thoughts">
+  <div class="creatives-container">
+    <h1 class="creatives-title">Creatives</h1>
+    <p class="creatives-intro">A collection of poems, short stories, quotes, and expanded thoughts.</p>
+    
+    <div class="category-tabs">
+      <button class="tab-button active" data-category="all">All</button>
+      <button class="tab-button" data-category="poem">Poems</button>
+      <button class="tab-button" data-category="story">Stories</button>
+      <button class="tab-button" data-category="quote">Quotes</button>
+      <button class="tab-button" data-category="thought">Thoughts</button>
+    </div>
+
+    <div class="creatives-grid" id="creatives-grid">
+      {sortedCreatives.map(creative => (
+        <article class="creative-card" data-category={creative.data.category}>
+          <div class="creative-content">
+            <div class="creative-meta">
+              <span class="creative-category">{creative.data.category}</span>
+              <span class="creative-date">{creative.data.pubDate.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric'
+              })}</span>
+            </div>
+            <h2 class="creative-title">
+              <a href={`/creatives/${creative.slug}`}>{creative.data.title}</a>
+            </h2>
+            <p class="creative-excerpt">{creative.data.description}</p>
+            {creative.data.tags && creative.data.tags.length > 0 && (
+              <div class="creative-tags">
+                {creative.data.tags.map((tag: string) => (
+                  <span class="creative-tag">{tag}</span>
+                ))}
+              </div>
+            )}
+            <a href={`/creatives/${creative.slug}`} class="read-more">Read more →</a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .creatives-container {
+    max-width: 1200px;
+    margin: 8rem auto 4rem;
+    padding: 0 2rem;
+  }
+  
+  .creatives-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  .creatives-intro {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 3rem;
+  }
+
+  .category-tabs {
+    margin-bottom: 2rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .tab-button {
+    padding: 0.5rem 1rem;
+    border: 2px solid #e0e0e0;
+    background: white;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    color: #666;
+  }
+
+  .tab-button:hover {
+    border-color: #64ffda;
+    color: #333;
+  }
+
+  .tab-button.active {
+    background: #64ffda;
+    border-color: #64ffda;
+    color: white;
+  }
+  
+  .creatives-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+  
+  .creative-card {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .creative-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .creative-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .creative-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .creative-category {
+    background: linear-gradient(135deg, #64ffda, #4ecdc4);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .creative-date {
+    font-size: 0.9rem;
+    color: #888;
+  }
+  
+  .creative-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+  
+  .creative-title a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .creative-title a:hover {
+    color: #64ffda;
+  }
+  
+  .creative-excerpt {
+    color: #555;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    flex-grow: 1;
+  }
+  
+  .creative-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .creative-tag {
+    background-color: #f0f0f0;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    color: #333;
+  }
+  
+  .read-more {
+    color: #64ffda;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: transform 0.3s ease;
+    display: inline-block;
+  }
+  
+  .read-more:hover {
+    transform: translateX(5px);
+  }
+  
+  @media (max-width: 768px) {
+    .creatives-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .creatives-title {
+      font-size: 2.5rem;
+    }
+
+    .category-tabs {
+      justify-content: center;
+    }
+  }
+</style>
+
+<script>
+  // Category filtering functionality
+  const tabButtons = document.querySelectorAll('.tab-button');
+  const creativeCards = document.querySelectorAll('.creative-card');
+
+  tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const category = button.getAttribute('data-category');
+      
+      // Update active button
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+      
+      // Filter cards
+      creativeCards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
