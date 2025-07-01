@@ -42,18 +42,38 @@ const {
 		--secondary-color: #a855f7;
 		--accent-color: #f59e0b;
 		
-		/* Background colors */
+		/* Dark theme colors */
 		--color-bg: #0a0a1a;
 		--color-bg-alt: #1a1a2e;
 		--color-bg-card: #16213e;
-		
-		/* Text colors - softer, less harsh */
 		--color-text: #a8b2d1;
 		--color-text-alt: #8892b0;
 		--color-text-dim: #64748b;
 		--color-heading: #e2e8f0;
+		--color-border: #2a2a3e;
 		
 		/* Compatibility with existing code */
+		--bg-color: var(--color-bg);
+		--text-color: var(--color-text);
+		--heading-color: var(--color-heading);
+	}
+	
+	/* Light theme */
+	[data-theme="light"] {
+		--primary-color: #0891b2;
+		--secondary-color: #7c3aed;
+		--accent-color: #ea580c;
+		
+		--color-bg: #ffffff;
+		--color-bg-alt: #f8fafc;
+		--color-bg-card: #f1f5f9;
+		--color-text: #1e293b;
+		--color-text-alt: #475569;
+		--color-text-dim: #64748b;
+		--color-heading: #0f172a;
+		--color-border: #e2e8f0;
+		
+		/* Compatibility */
 		--bg-color: var(--color-bg);
 		--text-color: var(--color-text);
 		--heading-color: var(--color-heading);

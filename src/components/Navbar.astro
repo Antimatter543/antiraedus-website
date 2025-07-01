@@ -13,6 +13,17 @@
       <a href="/blog">Blog</a>
       <!-- <a href="/creatives">Creatives</a> keeping invis for now because I don't think it's ready. -->
       <a href="/#contact">Contact</a>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+        <span class="theme-toggle-icon">
+          <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+          </svg>
+          <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </span>
+      </button>
     </div>
   </div>
 </nav>
@@ -23,10 +34,17 @@
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(10, 10, 26, 0.9);
     backdrop-filter: blur(10px);
     z-index: 100;
     padding: 1rem 0;
+    transition: background-color 0.3s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  [data-theme="light"] .navbar {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
   
   .container {
@@ -41,29 +59,160 @@
   .logo a {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #fff;
+    color: #ffffff;
     text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  [data-theme="light"] .logo a {
+    color: var(--color-heading);
   }
   
   .nav-links {
     display: flex;
     gap: 1.5rem;
+    align-items: center;
   }
   
   .nav-links a {
-    color: #fff;
+    color: #ffffff;
     text-decoration: none;
     font-size: 1rem;
     transition: color 0.3s ease;
   }
   
+  [data-theme="light"] .nav-links a {
+    color: var(--color-text);
+  }
+  
   .nav-links a:hover {
-    color: #64ffda;
+    color: var(--primary-color);
+  }
+  
+  .theme-toggle {
+    background: none;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: 0.5rem;
+    color: #ffffff;
+  }
+  
+  [data-theme="light"] .theme-toggle {
+    border-color: rgba(0, 0, 0, 0.2);
+    color: var(--color-text);
+  }
+  
+  .theme-toggle:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    transform: scale(1.05);
+  }
+  
+  .theme-toggle-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .sun-icon,
+  .moon-icon {
+    position: absolute;
+    transition: all 0.3s ease;
+  }
+  
+  /* Dark mode - show sun icon */
+  .sun-icon {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+  
+  .moon-icon {
+    opacity: 0;
+    transform: rotate(180deg);
+  }
+  
+  /* Light mode - show moon icon */
+  [data-theme="light"] .sun-icon {
+    opacity: 0;
+    transform: rotate(-180deg);
+  }
+  
+  [data-theme="light"] .moon-icon {
+    opacity: 1;
+    transform: rotate(0deg);
   }
   
   @media (max-width: 768px) {
     .nav-links {
       display: none;
     }
+    
+    /* Show only theme toggle on mobile */
+    .nav-links .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      display: flex;
+      z-index: 101;
+    }
   }
 </style>
+
+<script>
+  // Theme toggle functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const themeToggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+    
+    // Check for saved theme or default to dark
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const defaultTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+    
+    // Apply the theme
+    if (defaultTheme === 'light') {
+      html.setAttribute('data-theme', 'light');
+    } else {
+      html.removeAttribute('data-theme');
+    }
+    
+    // Toggle theme function
+    function toggleTheme() {
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      
+      if (newTheme === 'light') {
+        html.setAttribute('data-theme', 'light');
+      } else {
+        html.removeAttribute('data-theme');
+      }
+      
+      // Save to localStorage
+      localStorage.setItem('theme', newTheme);
+    }
+    
+    // Add click event listener
+    if (themeToggle) {
+      themeToggle.addEventListener('click', toggleTheme);
+    }
+    
+    // Listen for system theme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      if (!localStorage.getItem('theme')) {
+        if (e.matches) {
+          html.removeAttribute('data-theme');
+        } else {
+          html.setAttribute('data-theme', 'light');
+        }
+      }
+    });
+  });
+</script>
