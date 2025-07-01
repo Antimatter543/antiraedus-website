@@ -97,6 +97,12 @@ const duration = getProjectDuration(entry.data.startDate, entry.data.endDate);
     padding: 2rem 0 4rem;
   }
   
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
   .project-header {
     margin-bottom: 2rem;
   }
@@ -321,6 +327,10 @@ const duration = getProjectDuration(entry.data.startDate, entry.data.endDate);
   }
 
   @media (max-width: 768px) {
+    .container {
+      padding: 0 1rem;
+    }
+    
     h1 {
       font-size: 2rem;
     }
@@ -332,6 +342,15 @@ const duration = getProjectDuration(entry.data.startDate, entry.data.endDate);
     .btn {
       width: 100%;
       text-align: center;
+    }
+    
+    .project-tags-container {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .tag-group {
+      min-width: auto;
     }
   }
 </style>
