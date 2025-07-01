@@ -40,31 +40,31 @@ export class BlackHoleAnimation {
       });
     }
     
-    // Create 2 random static black holes with their stars
-    for (let i = 0; i < 2; i++) {
-      const holeX = Math.random() * this.canvas.width;
-      const holeY = Math.random() * this.canvas.height;
-      const stars = [];
+    // // Create 2 random static black holes with their stars
+    // for (let i = 0; i < 2; i++) {
+    //   const holeX = Math.random() * this.canvas.width;
+    //   const holeY = Math.random() * this.canvas.height;
+    //   const stars = [];
       
-      // Create 30 fixed stars around this black hole
-      for (let j = 0; j < 30; j++) {
-        const angle = (j / 30) * Math.PI * 2;
-        const distance = 35 + Math.random() * 20;
-        stars.push({
-          x: holeX + Math.cos(angle) * distance,
-          y: holeY + Math.sin(angle) * distance,
-          size: 0.5 + Math.random() * 0.5,
-          opacity: 0.3 + Math.random() * 0.4
-        });
-      }
+    //   // Create 30 fixed stars around this black hole
+    //   for (let j = 0; j < 30; j++) {
+    //     const angle = (j / 30) * Math.PI * 2;
+    //     const distance = 35 + Math.random() * 20;
+    //     stars.push({
+    //       x: holeX + Math.cos(angle) * distance,
+    //       y: holeY + Math.sin(angle) * distance,
+    //       size: 0.5 + Math.random() * 0.5,
+    //       opacity: 0.3 + Math.random() * 0.4
+    //     });
+    //   }
       
-      this.staticHoles.push({
-        x: holeX,
-        y: holeY,
-        size: 20,
-        stars: stars
-      });
-    }
+    //   this.staticHoles.push({
+    //     x: holeX,
+    //     y: holeY,
+    //     size: 20,
+    //     stars: stars
+    //   });
+    // }
     
     // Create particles with physics properties
     for (let i = 0; i < 100; i++) {
