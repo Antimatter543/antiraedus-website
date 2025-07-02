@@ -14,7 +14,7 @@ const featuredProjects = await getFeaturedProjects();
             <a href={`/projects/${project.slug}`} class="image-link">
               <img src={project.data.image} alt={project.data.imageAlt} />
               <div class="read-more-overlay">
-                <span>Read Case Study</span>
+                <span>View Project</span>
               </div>
             </a>
           </div>
@@ -27,7 +27,7 @@ const featuredProjects = await getFeaturedProjects();
               ))}
             </div>
             <div class="project-links">
-              <a href={`/projects/${project.slug}`} class="btn btn-primary">Read Case Study</a>
+              <a href={`/projects/${project.slug}`} class="btn btn-primary">View Project</a>
               {project.data.liveUrl && (
                 <a href={project.data.liveUrl} target="_blank" rel="noopener noreferrer" class="btn">View Live</a>
               )}
@@ -64,6 +64,8 @@ const featuredProjects = await getFeaturedProjects();
     background-color: var(--color-bg-alt);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     height: 100%;
+    display: flex;
+    flex-direction: column;
   }
 
   .project-card:hover {
@@ -111,6 +113,9 @@ const featuredProjects = await getFeaturedProjects();
 
   .project-content {
     padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
   }
 
   .project-content h3 {
@@ -145,6 +150,7 @@ const featuredProjects = await getFeaturedProjects();
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+    margin-top: auto;
   }
 
   .btn {
@@ -201,12 +207,13 @@ const featuredProjects = await getFeaturedProjects();
   }
 
   .read-more-overlay span {
-    padding: 8px 16px;
-    border: 2px solid white;
-    font-weight: 600;
-    font-size: 0.8rem;
+    padding: 6px 12px;
+    border: 1px solid white;
+    font-weight: 400;
+    font-size: 0.7rem;
     transform: translateY(20px);
     transition: transform 0.3s ease;
+    opacity: 0.9;
   }
 
   .image-link:hover .read-more-overlay {
