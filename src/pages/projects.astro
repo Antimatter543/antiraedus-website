@@ -276,12 +276,15 @@ const technologies = await getAllTechnologies();
   }
 
   .btn-primary {
-    background-color: var(--color-primary);
-    color: white;
+    background-color: var(--color-bg-card);
+    color: var(--primary-color);
+    border: 1px solid var(--color-bg-card);
   }
 
   .btn-primary:hover {
-    opacity: 0.9;
+    background-color: var(--primary-color);
+    color: var(--color-bg);
+    border-color: var(--primary-color);
   }
 
   .btn-outline {
