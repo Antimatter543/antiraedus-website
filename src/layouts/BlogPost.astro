@@ -41,10 +41,46 @@ const { frontmatter } = Astro.props;
         </div>
       )}
     </div>
-    
-    <div class="blog-content">
+      <div class="blog-content">
       <slot />
     </div>
+      <!-- Giscus Comments -->
+    <div class="comments-section">
+      <div id="giscus-container"></div>
+    </div>
+    
+    <script is:inline>
+      // Load Giscus comments
+      function loadGiscus() {
+        const script = document.createElement('script');
+        script.src = 'https://giscus.app/client.js';
+        script.setAttribute('data-repo', 'antimatter543/antiraedus-website');
+        script.setAttribute('data-repo-id', 'R_kgDOO9PSxw');
+        script.setAttribute('data-category', 'Announcements');
+        script.setAttribute('data-category-id', 'DIC_kwDOO9PSx84CsfWa');
+        script.setAttribute('data-mapping', 'pathname');
+        script.setAttribute('data-strict', '0');
+        script.setAttribute('data-reactions-enabled', '1');
+        script.setAttribute('data-emit-metadata', '0');
+        script.setAttribute('data-input-position', 'top');
+        script.setAttribute('data-theme', 'preferred_color_scheme');
+        script.setAttribute('data-lang', 'en');
+        script.setAttribute('crossorigin', 'anonymous');
+        script.async = true;
+        
+        const container = document.getElementById('giscus-container');
+        if (container) {
+          container.appendChild(script);
+        }
+      }
+      
+      // Load Giscus when the page is loaded
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', loadGiscus);
+      } else {
+        loadGiscus();
+      }
+    </script>
     
     <div class="blog-footer">
       <a href="/blog" class="back-button">← Back to all posts</a>
@@ -166,14 +202,19 @@ const { frontmatter } = Astro.props;
     font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
     font-size: 0.9em;
   }
-  
-  .blog-content blockquote {
+    .blog-content blockquote {
     border-left: 4px solid #64ffda;
     padding-left: 1rem;
     margin-left: 0;
     margin-right: 0;
     color: #666;
     font-style: italic;
+  }
+  
+  .comments-section {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
   }
   
   .blog-footer {
