@@ -11,12 +11,13 @@ const featuredProjects = await getFeaturedProjects();
       <div class="carousel-item" key={`${project.slug}-${index}`}>
         <div class="project-card">
           <div class="project-image">
-            <a href={`/projects/${project.slug}`} class="image-link">
+            <a href={project.data.hasWriteup ? `/projects/${project.slug}` : (project.data.externalUrl || project.data.liveUrl || project.data.githubUrl || '#')} class="image-link" target={project.data.hasWriteup ? '_self' : '_blank'} rel={project.data.hasWriteup ? '' : 'noopener noreferrer'}>
               <img src={project.data.image} alt={project.data.imageAlt} />
               <div class="read-more-overlay">
-                <span>View Project</span>
+                <span>{project.data.hasWriteup ? 'Read More' : 'View Project'}</span>
               </div>
             </a>
+            {project.data.hasWriteup && <div class="writeup-badge">📖</div>}
           </div>
           <div class="project-content">
             <h3><a href={`/projects/${project.slug}`} class="title-link">{project.data.title}</a></h3>
@@ -27,8 +28,10 @@ const featuredProjects = await getFeaturedProjects();
               ))}
             </div>
             <div class="project-links">
-              <a href={`/projects/${project.slug}`} class="btn btn-primary">View Project</a>
-              {project.data.liveUrl && (
+              <a href={project.data.hasWriteup ? `/projects/${project.slug}` : (project.data.externalUrl || project.data.liveUrl || project.data.githubUrl || '#')} class="btn btn-primary" target={project.data.hasWriteup ? '_self' : '_blank'} rel={project.data.hasWriteup ? '' : 'noopener noreferrer'}>
+                {project.data.hasWriteup ? 'Read More' : 'View Project'}
+              </a>
+              {project.data.liveUrl && project.data.hasWriteup && (
                 <a href={project.data.liveUrl} target="_blank" rel="noopener noreferrer" class="btn">View Live</a>
               )}
             </div>
@@ -109,6 +112,22 @@ const featuredProjects = await getFeaturedProjects();
   .status-planned {
     background-color: #6366f1;
     color: white;
+  }
+
+  .writeup-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 50%;
+    font-size: 0.9rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
   .project-content {

@@ -15,6 +15,15 @@ export async function getStaticPaths() {
 
 // Get project data from the props
 const { entry } = Astro.props;
+
+// If project doesn't have a writeup, redirect to external URL
+if (!entry.data.hasWriteup) {
+  const externalUrl = entry.data.externalUrl || entry.data.liveUrl || entry.data.githubUrl;
+  if (externalUrl) {
+    return Astro.redirect(externalUrl);
+  }
+}
+
 const { Content } = await entry.render();
 
 // Format dates

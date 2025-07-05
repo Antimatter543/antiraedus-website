@@ -4,13 +4,12 @@ description: "Full project hosted with AWS EC2 about duelling friends in leetcod
 image: "/assets/projects/codeduel.png"
 imageAlt: "CodeDuel application showing competitive programming interface"
 technologies: ["Python", "AWS", "Docker", "Flask", "Vite"]
-liveUrl: ""
-githubUrl: "https://github.com/Antimatter543/CodeClash"
 hasWriteup: false
+externalUrl: "https://github.com/Antimatter543/CodeClash"
+githubUrl: "https://github.com/Antimatter543/CodeClash"
 featured: true
 status: "completed"
-startDate: ""
-endDate: ""
+startDate: "2024-01-01"
 category: "Web Application"
 ---
 

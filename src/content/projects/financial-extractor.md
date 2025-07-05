@@ -4,6 +4,7 @@ description: "Automated financial statement extraction and analysis using GenAI.
 image: "/images/projects/financial-extractor-diagram.svg"
 imageAlt: "Financial extraction pipeline workflow diagram showing PDF processing through GenAI to structured outputs"
 technologies: ["Python", "GenAI", "Gemini API", "PDF Processing", "Data Analysis", "Automation"]
+hasWriteup: true
 githubUrl: "https://github.com/Antimatter543/Financial_Extractor"
 featured: true
 status: "completed"

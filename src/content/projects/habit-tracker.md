@@ -4,6 +4,7 @@ description: "A comprehensive web application that helps users build and maintai
 image: "/projects/habit-tracker.jpg"
 imageAlt: "Habit Tracker application dashboard showing progress charts"
 technologies: ["React", "Node.js", "MongoDB", "Express", "Chart.js"]
+hasWriteup: true
 liveUrl: "https://habit-tracker-demo.com"
 githubUrl: "https://github.com/yourusername/habit-tracker"
 featured: true

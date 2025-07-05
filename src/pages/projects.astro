@@ -56,19 +56,20 @@ const technologies = await getAllTechnologies();
             data-techs={project.data.technologies.map(t => t.toLowerCase()).join(' ')} 
             data-status={project.data.status}
           >            <div class="project-image">
-              <a href={`/projects/${project.slug}`} class="image-link">
+              <a href={project.data.hasWriteup ? `/projects/${project.slug}` : (project.data.externalUrl || project.data.liveUrl || project.data.githubUrl || '#')} class="image-link" target={project.data.hasWriteup ? '_self' : '_blank'} rel={project.data.hasWriteup ? '' : 'noopener noreferrer'}>
                 <img src={project.data.image} alt={project.data.imageAlt} />
                 <div class="read-more-overlay">
-                  <span>View Project</span>
+                  <span>{project.data.hasWriteup ? 'Read More' : 'View Project'}</span>
                 </div>
               </a>
               <div class={`status-badge ${getStatusBadgeClass(project.data.status)}`}>
                 {project.data.status}
               </div>
               {project.data.featured && <div class="featured-badge">Featured</div>}
+              {project.data.hasWriteup && <div class="writeup-badge">📖</div>}
             </div>
             <div class="project-content">
-              <h2><a href={`/projects/${project.slug}`} class="title-link">{project.data.title}</a></h2>
+              <h2><a href={project.data.hasWriteup ? `/projects/${project.slug}` : (project.data.externalUrl || project.data.liveUrl || project.data.githubUrl || '#')} class="title-link" target={project.data.hasWriteup ? '_self' : '_blank'} rel={project.data.hasWriteup ? '' : 'noopener noreferrer'}>{project.data.title}</a></h2>
               <p>{project.data.description}</p>
               <div class="project-tags">
                 {project.data.technologies.map((tech) => (
@@ -78,15 +79,15 @@ const technologies = await getAllTechnologies();
               <div class="project-category">
                 <span class="category-label">{project.data.category}</span>
               </div>              <div class="project-links">
-                <a href={`/projects/${project.slug}`} class="btn btn-primary">
-                  View Project
+                <a href={project.data.hasWriteup ? `/projects/${project.slug}` : (project.data.externalUrl || project.data.liveUrl || project.data.githubUrl || '#')} class="btn btn-primary" target={project.data.hasWriteup ? '_self' : '_blank'} rel={project.data.hasWriteup ? '' : 'noopener noreferrer'}>
+                  {project.data.hasWriteup ? 'Read More' : 'View Project'}
                 </a>
-                {project.data.liveUrl && (
+                {project.data.liveUrl && project.data.hasWriteup && (
                   <a href={project.data.liveUrl} target="_blank" rel="noopener noreferrer" class="btn">
                     View Live
                   </a>
                 )}
-                {project.data.githubUrl && (
+                {project.data.githubUrl && project.data.hasWriteup && (
                   <a href={project.data.githubUrl} target="_blank" rel="noopener noreferrer" class="btn btn-outline">
                     Source Code
                   </a>
@@ -212,6 +213,22 @@ const technologies = await getAllTechnologies();
     color: white;
     text-transform: uppercase;
     z-index: 2;
+  }
+
+  .writeup-badge {
+    position: absolute;
+    top: 3.5rem;
+    left: 1rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 50%;
+    font-size: 0.9rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
   .project-content {

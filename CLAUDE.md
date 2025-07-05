@@ -20,7 +20,7 @@ This is a personal portfolio website built with Astro. The site features a blog,
 ### Content Collections
 The site uses Astro's content collections system for structured content:
 
-- **Projects Collection** (`src/content/projects/`): Markdown files with frontmatter defining project metadata (title, description, technologies, dates, status, etc.)
+- **Projects Collection** (`src/content/projects/`): Markdown files with frontmatter defining project metadata (title, description, technologies, dates, status, etc.). Projects can either have detailed writeups or link to external URLs
 - **Blog Collection** (`src/content/blog/`): Blog posts with frontmatter for title, description, publication date, tags, etc.
 - **Content Schema** (`src/content/config.ts`): Zod schemas defining the structure and validation for both collections
 
@@ -47,6 +47,8 @@ Global styles are defined in `src/layouts/Layout.astro` with CSS custom properti
 1. Create a new `.md` file in `src/content/projects/`
 2. Follow the schema defined in `src/content/config.ts` for frontmatter
 3. Include required fields: title, description, image, technologies, status, startDate, category
+4. Set `hasWriteup: true` for projects with detailed content or `hasWriteup: false` for external links
+5. For external projects, provide `externalUrl` to redirect users to GitHub repos or live applications
 
 ### Adding Blog Posts
 1. Create a new `.md` file in `src/content/blog/`
@@ -56,6 +58,10 @@ Global styles are defined in `src/layouts/Layout.astro` with CSS custom properti
 - `completed`: Finished projects
 - `in-progress`: Currently active projects  
 - `planned`: Future projects
+
+### Project Types
+- **Writeup Projects** (`hasWriteup: true`): Projects with detailed case studies and content. These display a book icon (📖) and "Read More" button
+- **External Projects** (`hasWriteup: false`): Projects that redirect to external URLs. These show "View Project" and link directly to GitHub repos or live applications
 
 ## Key Files to Understand
 - `src/content/config.ts`: Content collection schemas and validation
