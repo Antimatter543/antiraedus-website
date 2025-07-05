@@ -17,7 +17,18 @@ export class BlackHoleAnimation {
 
   init() {
     this.resize();
+    
+    // Listen for window resize
     window.addEventListener('resize', () => this.resize());
+    
+    // Listen for hero section size changes using ResizeObserver
+    const heroSection = this.canvas.closest('.hero-section');
+    if (heroSection && window.ResizeObserver) {
+      const resizeObserver = new ResizeObserver(() => {
+        this.resize();
+      });
+      resizeObserver.observe(heroSection);
+    }
     
     // Track mouse movement
     this.canvas.addEventListener('mousemove', (e) => {
@@ -30,7 +41,48 @@ export class BlackHoleAnimation {
     this.mouseX = this.canvas.width / 2;
     this.mouseY = this.canvas.height / 2;
     
-    // Create static background stars
+    // Create particles with physics properties
+    for (let i = 0; i < 100; i++) {
+      this.particles.push(this.createParticle());
+    }
+  }
+
+  resize() {
+    // Get the hero section element to match its dimensions
+    const heroSection = this.canvas.closest('.hero-section');
+    if (heroSection) {
+      const rect = heroSection.getBoundingClientRect();
+      this.canvas.width = rect.width;
+      this.canvas.height = rect.height;
+    } else {
+      // Fallback to window dimensions
+      this.canvas.width = window.innerWidth;
+      this.canvas.height = window.innerHeight;
+    }
+    
+    this.centerX = this.canvas.width / 2;
+    this.centerY = this.canvas.height / 2;
+    this.mouseX = this.centerX;
+    this.mouseY = this.centerY;
+    
+    // Regenerate stars and particles to fit new dimensions
+    this.regenerateElements();
+  }
+
+  createParticle() {
+    return {
+      x: Math.random() * this.canvas.width,
+      y: Math.random() * this.canvas.height,
+      vx: (Math.random() - 0.5) * 2,
+      vy: (Math.random() - 0.5) * 2,
+      size: Math.random() * 1.5 + 0.8,
+      opacity: Math.random() * 0.6 + 0.3
+    };
+  }
+
+  regenerateElements() {
+    // Clear and regenerate background stars
+    this.stars = [];
     for (let i = 0; i < 100; i++) {
       this.stars.push({
         x: Math.random() * this.canvas.width,
@@ -40,7 +92,8 @@ export class BlackHoleAnimation {
       });
     }
     
-    // Create 2 random static black holes with their stars
+    // Clear and regenerate static black holes
+    this.staticHoles = [];
     for (let i = 0; i < 2; i++) {
       const holeX = Math.random() * this.canvas.width;
       const holeY = Math.random() * this.canvas.height;
@@ -66,30 +119,11 @@ export class BlackHoleAnimation {
       });
     }
     
-    // Create particles with physics properties
-    for (let i = 0; i < 100; i++) {
-      this.particles.push(this.createParticle());
-    }
-  }
-
-  resize() {
-    this.canvas.width = window.innerWidth;
-    this.canvas.height = window.innerHeight;
-    this.centerX = this.canvas.width / 2;
-    this.centerY = this.canvas.height / 2;
-    this.mouseX = this.centerX;
-    this.mouseY = this.centerY;
-  }
-
-  createParticle() {
-    return {
-      x: Math.random() * this.canvas.width,
-      y: Math.random() * this.canvas.height,
-      vx: (Math.random() - 0.5) * 2,
-      vy: (Math.random() - 0.5) * 2,
-      size: Math.random() * 1.5 + 0.8,
-      opacity: Math.random() * 0.6 + 0.3
-    };
+    // Reposition existing particles to fit new canvas size
+    this.particles.forEach(particle => {
+      particle.x = Math.random() * this.canvas.width;
+      particle.y = Math.random() * this.canvas.height;
+    });
   }
 
   animate() {
