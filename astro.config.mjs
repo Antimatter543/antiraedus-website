@@ -10,6 +10,6 @@ export default defineConfig({
       wrap: true
     }
   },
-  // site: 'https://yourwebsite.com',
+  site: 'https://antimatter543.github.io/antiraedus-website/',
   integrations: []
 });
