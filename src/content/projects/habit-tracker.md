@@ -7,7 +7,7 @@ technologies: ["React", "Node.js", "MongoDB", "Express", "Chart.js"]
 hasWriteup: true
 liveUrl: "https://habit-tracker-demo.com"
 githubUrl: "https://github.com/yourusername/habit-tracker"
-featured: true
+featured: false
 status: "completed"
 startDate: "2024-01-15"
 endDate: "2024-04-20"

@@ -66,7 +66,6 @@ const technologies = await getAllTechnologies();
                 {project.data.status}
               </div>
               {project.data.featured && <div class="featured-badge">Featured</div>}
-              {project.data.hasWriteup && <div class="writeup-badge">📖</div>}
             </div>
             <div class="project-content">
               <h2><a href={project.data.hasWriteup ? `/projects/${project.slug}` : (project.data.externalUrl || project.data.liveUrl || project.data.githubUrl || '#')} class="title-link" target={project.data.hasWriteup ? '_self' : '_blank'} rel={project.data.hasWriteup ? '' : 'noopener noreferrer'}>{project.data.title}</a></h2>
@@ -215,21 +214,6 @@ const technologies = await getAllTechnologies();
     z-index: 2;
   }
 
-  .writeup-badge {
-    position: absolute;
-    top: 3.5rem;
-    left: 1rem;
-    padding: 0.3rem 0.6rem;
-    border-radius: 50%;
-    font-size: 0.9rem;
-    background-color: rgba(255, 255, 255, 0.9);
-    color: #333;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
 
   .project-content {
     padding: 1.5rem;

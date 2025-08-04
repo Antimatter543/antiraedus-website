@@ -1,7 +1,7 @@
 ---
 title: "CodeDuel"
 description: "Full project hosted with AWS EC2 about duelling friends in leetcode, and sabotaging them!"
-image: "/assets/projects/codeduel.png"
+image: "/images/projects/codeduel.png"
 imageAlt: "CodeDuel application showing competitive programming interface"
 technologies: ["Python", "AWS", "Docker", "Flask", "Vite"]
 hasWriteup: false
