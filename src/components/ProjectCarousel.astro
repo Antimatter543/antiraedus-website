@@ -20,7 +20,9 @@ const featuredProjects = await getFeaturedProjects();
           </div>
           <div class="project-content">
             <h3><a href={`/projects/${project.slug}`} class="title-link">{project.data.title}</a></h3>
-            <p>{project.data.description}</p>
+            <p class="project-description" data-full-text={project.data.description}>
+              {project.data.description.length > 100 ? project.data.description.slice(0, 100) + '...' : project.data.description}
+            </p>
             <div class="project-tags">
               {project.data.technologies.slice(0, 3).map((tech) => (
                 <span>{tech}</span>
@@ -132,6 +134,19 @@ const featuredProjects = await getFeaturedProjects();
     margin-bottom: 1rem;
     font-size: 0.9rem;
     line-height: 1.4;
+  }
+
+  .project-description {
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+
+  .project-description:hover {
+    color: var(--color-text);
+  }
+
+  .project-description.expanded {
+    color: var(--color-text);
   }
 
   .project-tags {
@@ -251,6 +266,23 @@ const featuredProjects = await getFeaturedProjects();
     animation-play-state: paused;
   }
 
+  .carousel-container {
+    cursor: grab;
+  }
+
+  .carousel-container:active {
+    cursor: grabbing;
+  }
+
+  .carousel-container.dragging {
+    cursor: grabbing;
+  }
+
+  .carousel-container.dragging .carousel-track {
+    animation-play-state: paused;
+    animation: none !important;
+  }
+
   @media (max-width: 768px) {
     .carousel-item {
       flex: 0 0 280px;
@@ -264,16 +296,160 @@ const featuredProjects = await getFeaturedProjects();
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
+    const carouselContainer = document.querySelector('.carousel-container');
     const carouselTrack = document.querySelector('.carousel-track');
     const projectCards = document.querySelectorAll('.project-card');
     
+    if (!carouselContainer || !carouselTrack) return;
+    
+    let isDragging = false;
+    let startX = 0;
+    let currentTranslate = 0;
+    let animationId = 0;
+    let hasDragged = false;
+    
+    // Get current transform value
+    function getCurrentTranslate() {
+      const style = window.getComputedStyle(carouselTrack);
+      const matrix = new DOMMatrix(style.transform);
+      return matrix.m41; // translateX value
+    }
+    
+    // Set transform with manual offset
+    function setTrackPosition(translateX) {
+      carouselTrack.style.transform = `translateX(${translateX}px)`;
+      carouselTrack.style.animation = 'none';
+    }
+    
+    // Resume normal animation
+    function resumeAnimation() {
+      carouselTrack.style.animation = '';
+      carouselTrack.style.transform = '';
+    }
+    
+    // Mouse events
+    carouselContainer.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      hasDragged = false;
+      startX = e.clientX;
+      currentTranslate = getCurrentTranslate();
+      carouselContainer.classList.add('dragging');
+      carouselTrack.classList.add('paused');
+      e.preventDefault();
+    });
+    
+    document.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      
+      const deltaX = e.clientX - startX;
+      if (Math.abs(deltaX) > 5) { // Only consider it a drag if moved more than 5px
+        hasDragged = true;
+      }
+      const newTranslate = currentTranslate + deltaX;
+      setTrackPosition(newTranslate);
+    });
+    
+    document.addEventListener('mouseup', () => {
+      if (!isDragging) return;
+      
+      isDragging = false;
+      carouselContainer.classList.remove('dragging');
+      
+      // Resume animation after a short delay
+      setTimeout(() => {
+        resumeAnimation();
+        carouselTrack.classList.remove('paused');
+      }, 1000);
+    });
+    
+    // Touch events for mobile
+    carouselContainer.addEventListener('touchstart', (e) => {
+      isDragging = true;
+      hasDragged = false;
+      startX = e.touches[0].clientX;
+      currentTranslate = getCurrentTranslate();
+      carouselContainer.classList.add('dragging');
+      carouselTrack.classList.add('paused');
+    });
+    
+    carouselContainer.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      
+      const deltaX = e.touches[0].clientX - startX;
+      if (Math.abs(deltaX) > 5) { // Only consider it a drag if moved more than 5px
+        hasDragged = true;
+      }
+      const newTranslate = currentTranslate + deltaX;
+      setTrackPosition(newTranslate);
+      e.preventDefault();
+    });
+    
+    carouselContainer.addEventListener('touchend', () => {
+      if (!isDragging) return;
+      
+      isDragging = false;
+      carouselContainer.classList.remove('dragging');
+      
+      // Resume animation after a short delay
+      setTimeout(() => {
+        resumeAnimation();
+        carouselTrack.classList.remove('paused');
+      }, 1000);
+    });
+    
+    // Prevent clicks when dragging
+    carouselContainer.addEventListener('click', (e) => {
+      if (hasDragged) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    }, true);
+    
+    // Prevent link clicks when dragging
+    const allLinks = carouselContainer.querySelectorAll('a');
+    allLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        if (hasDragged) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+      });
+    });
+    
+    // Handle description expansion
+    const descriptions = carouselContainer.querySelectorAll('.project-description');
+    descriptions.forEach(desc => {
+      desc.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        if (hasDragged) return; // Don't expand if we just dragged
+        
+        const fullText = desc.dataset.fullText;
+        const currentText = desc.textContent;
+        
+        if (currentText.includes('...')) {
+          desc.textContent = fullText;
+          desc.classList.add('expanded');
+        } else if (fullText.length > 100) {
+          desc.textContent = fullText.slice(0, 100) + '...';
+          desc.classList.remove('expanded');
+        }
+      });
+    });
+    
+    // Existing hover pause functionality
     projectCards.forEach(card => {
       card.addEventListener('mouseenter', () => {
-        carouselTrack?.classList.add('paused');
+        if (!isDragging) {
+          carouselTrack.classList.add('paused');
+        }
       });
       
       card.addEventListener('mouseleave', () => {
-        carouselTrack?.classList.remove('paused');
+        if (!isDragging) {
+          carouselTrack.classList.remove('paused');
+        }
       });
     });
   });

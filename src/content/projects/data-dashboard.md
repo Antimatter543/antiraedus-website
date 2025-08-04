@@ -8,7 +8,7 @@ hasWriteup: false
 externalUrl: "https://data-dashboard-demo.netlify.app"
 liveUrl: "https://data-dashboard-demo.netlify.app"
 githubUrl: "https://github.com/yourusername/data-dashboard"
-featured: true
+featured: false
 status: "completed"
 startDate: "2024-03-01"
 endDate: "2024-05-30"
