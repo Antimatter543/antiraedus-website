@@ -1,15 +1,15 @@
 ---
 title: "CodeDuel"
-description: "Full project hosted with AWS EC2 about duelling friends in leetcode, and sabotaging them!"
+description: "1v1 your friends in LeetCode battles with sabotage mechanics! Built during UQCS Hackathon 2024 with real-time competitive programming and code execution via Judge0."
 image: "/images/projects/codeduel.png"
 imageAlt: "CodeDuel application showing competitive programming interface"
-technologies: ["Python", "AWS", "Docker", "Flask", "Vite"]
+technologies: ["TypeScript", "Python", "AWS", "Docker", "Flask", "Judge0", "BeautifulSoup", "React"]
 hasWriteup: false
 externalUrl: "https://github.com/Antimatter543/CodeClash"
 githubUrl: "https://github.com/Antimatter543/CodeClash"
 featured: true
 status: "completed"
-startDate: "2024-01-01"
+startDate: "2024-08-15"
 category: "Web Application"
 ---
 
