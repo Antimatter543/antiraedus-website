@@ -5,6 +5,7 @@
   <canvas id="blackhole-canvas"></canvas>
   <div class="container">
     <div class="poem">
+          It does not ask permission.<br>
       <h2 class="ember-title">II. Emberborn</h2>
       <p class="subtitle"> A fire that does not yield</p>
       
@@ -15,35 +16,36 @@
           there is a rhythm.<br>
           A pulse, faint but unyielding.<br>
           It does not scream.<br>
-          It does not ask permission.<br>
           <span class="ember-word">It burns.</span>
         </p>
 
         <p class="stanza">
-          It is the hunger that speaks in still moments—<br>
+          It is the hunger that speaks in still moments<br>
           when no one watches,<br>
           when the world forgets you.<br>
           It says:<br>
           <em>You are not done.</em>
         </p>
 
-        <p class="stanza">
+        <!-- <p class="stanza">
           Quiet ambition is not meek.<br>
           It is not polite.<br>
           It waits in shadows,<br>
           but it does not sleep.
-        </p>
+        </p> -->
 
         <p class="stanza">
           It is the curl of smoke before the blaze,<br>
           the held breath before the leap,<br>
           the solitary candle in a room of dusk.<br>
-          <span class="ember-word">Small—but defiant.</span>
+          <span class="ember-word">Small. </span> <br>
+          <span class="ember-word"> Defiant.</span>
         </p>
 
         <p class="stanza">
           There is a kind of fire<br>
           that doesn't need applause.<br>
+
           It lives in the bones of the stubborn,<br>
           in the souls of the strange.<br>
           It climbs out of cracked hearts<br>
@@ -75,7 +77,7 @@
           You are the ember that refused to die.<br>
           You are the beat that keeps drumming<br>
           in a world too deaf to listen.<br><br>
-          <span class="ember-word final-line">Let it burn.</span>
+          <span class="ember-word final-line">So burn.</span>
         </p>
       </div>
       <div class="scroll-indicator">
@@ -88,7 +90,7 @@
 
 <style>
   .hero-section {
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -97,7 +99,6 @@
     color: #fff;
     text-align: center;
     overflow: hidden;
-    padding: 4rem 0;
   }
 
   #blackhole-canvas {
@@ -115,6 +116,7 @@
     padding: 2rem;
     position: relative;
     z-index: 1;
+    height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -144,6 +146,29 @@
   .stanzas {
     max-width: 800px;
     margin: 0 auto;
+    max-height: 60vh;
+    overflow-y: auto;
+    padding-right: 1rem;
+    scrollbar-width: thin;
+    scrollbar-color: #ff6b35 transparent;
+  }
+  
+  .stanzas::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .stanzas::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .stanzas::-webkit-scrollbar-thumb {
+    background: #ff6b35;
+    border-radius: 4px;
+    opacity: 0.7;
+  }
+  
+  .stanzas::-webkit-scrollbar-thumb:hover {
+    background: #ff8c42;
   }
   
   .stanza {
