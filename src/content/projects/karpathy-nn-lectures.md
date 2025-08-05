@@ -7,9 +7,9 @@ technologies: ["Python", "Jupyter Notebook", "PyTorch", "NumPy", "Matplotlib"]
 hasWriteup: false
 externalUrl: "https://github.com/Antimatter543/karpathy-NN-lectures"
 githubUrl: "https://github.com/Antimatter543/karpathy-NN-lectures"
-featured: false
+featured: true
 status: "completed"
-startDate: "2022-09-22"
+startDate: "2023-02-22"
 category: "Machine Learning"
 ---
 
