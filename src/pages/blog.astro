@@ -15,7 +15,7 @@ const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
 <Layout title="Blog | Antiraedus" description="Read my latest articles and thoughts">
   <div class="blog-container">
     <h1 class="blog-title">Blog</h1>
-    <p class="blog-intro">Thoughts, ideas, and tutorials on web development, design, and more.</p>
+    <p class="blog-intro">Thoughts, ideas, and everything in between.</p>
       <div class="blog-posts">
       {sortedPosts.map(post => (
         <article class="blog-card">
@@ -25,14 +25,14 @@ const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
             </div>
           )}
           <div class="blog-content">
+            <h2 class="blog-card-title">
+              <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+            </h2>
             <div class="blog-date">{post.data.pubDate.toLocaleDateString('en-US', {
               year: 'numeric',
               month: 'long',
               day: 'numeric'
             })}</div>
-            <h2 class="blog-card-title">
-              <a href={`/blog/${post.slug}`}>{post.data.title}</a>
-            </h2>
             <p class="blog-excerpt">{post.data.description}</p>            <div class="blog-categories">
               {post.data.tags && post.data.tags.map((tag: string) => (
                 <span class="blog-category">{tag}</span>
@@ -56,18 +56,18 @@ const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
   .blog-title {
     font-size: 3rem;
     margin-bottom: 1rem;
-    color: #333;
+    color: var(--color-heading);
   }
   
   .blog-intro {
     font-size: 1.2rem;
-    color: #666;
+    color: var(--color-text-alt);
     margin-bottom: 3rem;
   }
   
   .blog-posts {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    display: flex;
+    flex-direction: column;
     gap: 2rem;
   }
   
@@ -76,10 +76,9 @@ const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background-color: #fff;
-    height: 100%;
+    background-color: var(--color-bg-alt);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
   }
   
   .blog-card:hover {
@@ -88,8 +87,10 @@ const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
   }
   
   .blog-image {
+    width: 250px;
     height: 200px;
     overflow: hidden;
+    flex-shrink: 0;
   }
   
   .blog-image img {
@@ -99,7 +100,7 @@ const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
   }
   
   .blog-content {
-    padding: 1.5rem;
+    padding: 1rem 1.5rem;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -107,50 +108,49 @@ const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
   
   .blog-date {
     font-size: 0.9rem;
-    color: #888;
-    margin-bottom: 0.5rem;
+    color: var(--color-text-dim);
+    margin-bottom: 1rem;
   }
   
   .blog-card-title {
     font-size: 1.5rem;
-    margin-bottom: 0.75rem;
+    margin: 0 0 0.5rem 0;
     line-height: 1.3;
   }
   
   .blog-card-title a {
-    color: #333;
+    color: var(--color-heading);
     text-decoration: none;
     transition: color 0.3s ease;
   }
   
   .blog-card-title a:hover {
-    color: #64ffda;
+    color: var(--primary-color);
   }
   
   .blog-excerpt {
-    color: #555;
+    color: var(--color-text-alt);
     margin-bottom: 1rem;
     line-height: 1.6;
-    flex-grow: 1;
   }
   
   .blog-categories {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
   }
   
   .blog-category {
-    background-color: #f0f0f0;
+    background-color: var(--color-bg);
     padding: 0.25rem 0.75rem;
     border-radius: 15px;
     font-size: 0.75rem;
-    color: #333;
+    color: var(--color-primary);
   }
   
   .read-more {
-    color: #64ffda;
+    color: var(--primary-color);
     text-decoration: none;
     font-weight: 500;
     font-size: 0.95rem;
@@ -163,8 +163,17 @@ const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
   }
   
   @media (max-width: 768px) {
-    .blog-posts {
-      grid-template-columns: 1fr;
+    .blog-container {
+      padding: 0 1rem;
+    }
+    
+    .blog-card {
+      flex-direction: column;
+    }
+    
+    .blog-image {
+      width: 100%;
+      height: 200px;
     }
     
     .blog-title {
