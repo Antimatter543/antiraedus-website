@@ -1,13 +1,11 @@
 ---
-layout: post
 title: "Dungeons and Data Structures Hackathon Reflection"
-date: 2021-05-03
-modified_date: 2021-05-12
-
-publish: true
-tags: normal gold
-excerpt: 'A little analysis on my first ever hackathon. Hosted by Coder One as their AI Sports Challenge 2021, it seemed like a fun starting point and I learnt <em>a lot </em> in this (especially around workflows and realistic team-based projects).'
+pubDate: "2021-05-03"
+updatedDate: "2021-05-12"
+tags: ["hackathon", "team projects", "AI Sports", "reflection"]
+description: 'A little analysis on my first ever hackathon. Hosted by Coder One as their AI Sports Challenge 2021, it seemed like a fun starting point and I learnt <em>a lot </em> in this (especially around workflows and realistic team-based projects).'
 # comments: false
+draft: false
 ---
 
 <style>
