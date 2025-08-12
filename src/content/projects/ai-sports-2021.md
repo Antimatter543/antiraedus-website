@@ -5,7 +5,7 @@ image: "/images/projects/game.gif"
 imageAlt: "AI Sports gameplay"
 technologies: ["Python", "Docker"]
 hasWriteup: true
-featured: false
+featured: true
 status: "completed"
 startDate: "2021-09-01"
 category: "AI & Game Development"

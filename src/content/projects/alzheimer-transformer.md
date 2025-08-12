@@ -7,7 +7,7 @@ technologies: ["Python", "PyTorch", "NumPy", "Pandas", "scikit-learn", "ViT"]
 hasWriteup: false
 externalUrl: "https://github.com/shakes76/PatternAnalysis-2024/tree/topic-recognition/recognition/AlzheimerTransformer_s4753820"
 githubUrl: "https://github.com/shakes76/PatternAnalysis-2024/tree/topic-recognition/recognition/AlzheimerTransformer_s4753820"
-featured: false
+featured: true
 status: "completed"
 startDate: "2024-10-21"
 category: "Computer Vision"
