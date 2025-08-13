@@ -34,7 +34,7 @@ Silent (team leader) also made his own reflection type thing: <a href="https://d
 ## Background Information 
 <a href="https://www.gocoder.one/aisports"> Coderone </a> is a (recent) startup company who so far hosts AI competitions. In December 2020, they hosted their first hackathon - a bomberesque game where your bot vs' another bot and wins by having more points than the enemy or letting the enemy die.
 
-<img src="/assets/coderone/oldgame.gif" alt="Gif of the old game">
+<img src="/blog/coderone/oldgame.gif" alt="Gif of the old game">
 <small> Gif of the old game. </small>
 
 Unfortunately, I wasn't there for that.
@@ -42,7 +42,7 @@ Instead, the variation of the game when I joined (May 2021) was where your goal 
 
 Fun.
 
-<img src="/assets/coderone/game.gif" alt="Gif of the game. Not yoinked from Valgrowth's article.">
+<img src="/blog/coderone/game.gif" alt="Gif of the game. Not yoinked from Valgrowth's article.">
 <small> Gif of the new game. Kill or be killed. </small>
 
 Anyways, I scouted out their previous game's repo and inspected the #1 agent's code (Jigglybluff). Safe to say I did not know what I was looking at (I think that'd be the case for most of the repos I looked at). In hindsight it looks like they wrote for a bunch of special cases (i.e spam if statements), which works well when you have good knowledge of the game. 
@@ -128,7 +128,7 @@ Another thing was that we first placed all the custom trackers created (which ap
 Silent noticed this, and the 5head he is, decided to split the tracker updates based on which strategy needs them. For instance, we'd only update the necessary tools for pickup if all the previous conditions have failed, and we now needed the pickup info to decide on whether or not to bother picking anything up. Essentially, we just update the required parts for whatever strategy is ahead.
 Might've worded it a bit odd, so here's the brain code.
 
-<img src="/assets/coderone/brainsnippet.png">
+<img src="/blog/coderone/brainsnippet.png">
 
 **<a href="https://docs.google.com/document/d/1ozkP3XgFPLWy1wzUtgNeFF_y5ijLSH4Aw17bPBEn7fM/edit#"> Here's Silent's reflection that he somehow already made. </a>**
 
@@ -136,11 +136,11 @@ Might've worded it a bit odd, so here's the brain code.
 
 TL;dr - Made it through qualifiers (came 13th), lost in playoffs. 
 
-<img src="/assets/coderone/coderoneRankingsMay2021.png"  height='500' alt="Results for the qualifiers rounds. Not the greatest, not the worst.">
+<img src="/blog/coderone/coderoneRankingsMay2021.png"  height='500' alt="Results for the qualifiers rounds. Not the greatest, not the worst.">
 
 To be honest, it was oofed when our bot didn't even make it to semi-finals but 🤷. Not bad for a first time. At least we beat some teams, and actually looking back at the replays, our bot fared quite well.
 
-<img src="/assets/coderone/playoffresults.png"> 
+<img src="/blog/coderone/playoffresults.png"> 
 
 <small> 
 Thanks to OtherBarry (Team Bruh) for providing a quick script that pulls the info into the .csv you see there.

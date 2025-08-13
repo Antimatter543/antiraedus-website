@@ -4,7 +4,8 @@ import Layout from '../../layouts/Layout.astro';
 import Comments from '../../components/Comments.astro';
 
 // Generate static paths for all blog posts
-export async function getStaticPaths() {  const blogEntries = await getCollection('blog', ({ data }) => {
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('blog', ({ data }) => {
     // Filter out draft posts in production
     return process.env.NODE_ENV === 'production' ? !data.draft : true;
   });
