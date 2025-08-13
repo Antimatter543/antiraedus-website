@@ -17,22 +17,7 @@ const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
     <h1 class="blog-title">Blog</h1>
     <p class="blog-intro">Thoughts, ideas, and everything in between.</p>
       <div class="blog-posts">
-      {sortedPosts.map(post => {
-        // Extract just the filename without folder path
-        const filename = post.slug.split('/').pop() || post.slug;
-        
-        // Create date-based URL structure: /YYYY/MM/DD/title
-        const date = post.data.pubDate;
-        const year = date.getFullYear();
-        const month = String(date.getMonth() + 1).padStart(2, '0');
-        const day = String(date.getDate()).padStart(2, '0');
-        
-        // Extract title from filename (remove date prefix if it exists)
-        const title = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '');
-        
-        const slug = `${year}/${month}/${day}/${title}`;
-        
-        return (
+      {sortedPosts.map(post => (
         <article class="blog-card">
           {post.data.heroImage && (
             <div class="blog-image">
@@ -41,7 +26,7 @@ const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
           )}
           <div class="blog-content">
             <h2 class="blog-card-title">
-              <a href={`/blog/${slug}`}>{post.data.title}</a>
+              <a href={`/blog/${post.slug}`}>{post.data.title}</a>
             </h2>
             <div class="blog-date">{post.data.pubDate.toLocaleDateString('en-US', {
               year: 'numeric',
@@ -53,11 +38,10 @@ const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
                 <span class="blog-category">{tag}</span>
               ))}
             </div>
-            <a href={`/blog/${slug}`} class="read-more">Read more →</a>
+            <a href={`/blog/${post.slug}`} class="read-more">Read more →</a>
           </div>
         </article>
-        );
-      })}
+      ))}
     </div>
   </div>
 </Layout>
