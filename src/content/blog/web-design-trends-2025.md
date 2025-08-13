@@ -3,7 +3,7 @@ title: "Web Design Trends for 2025"
 description: "Explore the latest web design trends that will dominate the digital landscape in 2025."
 pubDate: "2025-06-10"
 author: "Your Name"
-heroImage: "/blog/design-trends.jpg"
+heroImage: "/images/blogs/design-trends.jpg"
 tags: ["design", "web development", "trends"]
 ---
 
