@@ -3,15 +3,32 @@ import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 
 // Generate static paths for all blog posts
-export async function getStaticPaths() {  const blogEntries = await getCollection('blog', ({ data }) => {
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('blog', ({ data }) => {
     // Filter out draft posts in production
     return process.env.NODE_ENV === 'production' ? !data.draft : true;
   });
   
-  return blogEntries.map(entry => ({
-    params: { slug: entry.slug }, 
-    props: { entry },
-  }));
+  return blogEntries.map(entry => {
+    // Extract just the filename without folder path
+    const filename = entry.slug.split('/').pop() || entry.slug;
+    
+    // Create date-based URL structure: /YYYY/MM/DD/title
+    const date = entry.data.pubDate;
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    
+    // Extract title from filename (remove date prefix if it exists)
+    const title = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '');
+    
+    const slug = `${year}/${month}/${day}/${title}`;
+    
+    return {
+      params: { slug }, 
+      props: { entry },
+    };
+  });
 }
 
 // Get blog post data from the props
