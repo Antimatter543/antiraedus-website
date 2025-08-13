@@ -6,6 +6,8 @@ tags: ["hackathon", "team projects", "AI Sports", "reflection"]
 description: 'A little analysis on my first ever hackathon. Hosted by Coder One as their AI Sports Challenge 2021, it seemed like a fun starting point and I learnt <em>a lot </em> in this (especially around workflows and realistic team-based projects).'
 # comments: false
 draft: false
+heroImage: "/images/projects/game.gif"
+
 ---
 
 <style>
@@ -117,7 +119,7 @@ Here's the [github repository again](https://github.com/chrisrabe/ai-sports-2021
 From our in-house scrims, the vm-bot consistently the algo-bot one it had the 'retreat' strategy, which was essentially a valuemap version of the basic avoid strat.
 However, when our local 2 core Gaurav ran the image, the vm bot was glitching out (and the algo-bot, but less so). Turns out that the vm bot was returning & executing strategies too late -- it was too slow. Now, we didn't find this until the day we had to submit for playoffs, so we quickly had to submit the algo-bot which I had diligently been working on, just watching it *lose and lose and lose* to vm-bot. Luckily, I had just created an immediate_enemy_trapped property (added it to the gamestate), and along with some last minute bugfixes with the team, algobot made it through qualifiers. Turns out working on algo-bot was useful after all.
 
-{%include embed.html url="https://www.youtube.com/embed/gwcoWbcj13s"%}
+<iframe width="560" height="315" src="https://www.youtube.com/embed/gwcoWbcj13s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 <small> A later version of algo-bot vs aggro bot. These are both post-qualifiers, and aggro bot is well... A more aggro version of algo bot. Algo bot was submitted. Clean onestep kill by algo-bot at the end (that's my baby!) </small>
 
@@ -169,7 +171,8 @@ Cya!
 <br>
 <br>
 <br>
-{% include embed.html url="https://www.youtube.com/embed/XJo87YbiHUo" %}
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XJo87YbiHUo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 <small>
 Bonus: A video of me playing trying to beat the bot. I tried 5 different times to get a good video, but messed up 5 different ways. Got onestepped in one, but this one was just... Pitiful for me. Oof. Decided to cut my losses and just upload it. </small>

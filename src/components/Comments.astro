@@ -15,12 +15,56 @@
     data-reactions-enabled="1"
     data-emit-metadata="0"
     data-input-position="top"
-    data-theme="light"
+    data-theme="preferred_color_scheme"
     data-lang="en"
     crossorigin="anonymous"
     async
   ></script>
 </section>
+
+<script is:inline>
+  function updateGiscusTheme() {
+    // Check if light theme is active (data-theme="light" attribute exists)
+    const isLightMode = document.documentElement.getAttribute('data-theme') === 'light';
+    const theme = isLightMode ? 'light' : 'dark';
+    
+    const iframe = document.querySelector('iframe.giscus-frame');
+    if (!iframe) return;
+    
+    iframe.contentWindow.postMessage(
+      { giscus: { setConfig: { theme } } }, 
+      'https://giscus.app'
+    );
+  }
+
+  // Set up observer to watch for theme changes
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
+        updateGiscusTheme();
+      }
+    });
+  });
+
+  // Start observing the document element for attribute changes
+  observer.observe(document.documentElement, { 
+    attributes: true, 
+    attributeFilter: ['data-theme'] 
+  });
+
+  // Update theme when the page loads
+  window.addEventListener('load', () => {
+    updateGiscusTheme();
+  });
+
+  // Also update theme when Giscus iframe loads (fallback)
+  document.addEventListener('DOMContentLoaded', () => {
+    // Wait a bit for Giscus to load, then update theme
+    setTimeout(() => {
+      updateGiscusTheme();
+    }, 1000);
+  });
+</script>
 
 <style>
   .comments-section {

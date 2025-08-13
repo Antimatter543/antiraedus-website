@@ -5,6 +5,7 @@ pubDate: "2025-06-10"
 author: "Your Name"
 heroImage: "/images/blogs/design-trends.jpg"
 tags: ["design", "web development", "trends"]
+draft: true
 ---
 
 # Web Design Trends for 2025
