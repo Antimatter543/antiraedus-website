@@ -1,13 +1,10 @@
 ---
-layout: post
 title: "Exploring the realm of crushes"
-date: 2021-05-21
-reviewed: 2021-06-09
-
-tags: non-professional gold
-excerpt: "An exploration of crushes - a domain I'm not well versed in, which is why this article was made. On the importance of attractions/relationships and the lack of verbal knowledge about this. Survey n=~30 data gathered about crushes so you can create (more) data-based opinion on related topics!"
-comments: true
-publish: true
+description: "An exploration of crushes - a domain I'm not well versed in, which is why this article was made. On the importance of attractions/relationships and the lack of verbal knowledge about this. Survey n=~30 data gathered about crushes so you can create (more) data-based opinion on related topics!"
+pubDate: "2021-05-21"
+updatedDate: "2021-06-09"
+tags: ["non-professional", "gold", "relationships", "survey"]
+draft: false
 ---
 Warning: Contains swears.
 Edit from the future 7/02/23 me here speaking: I was considering not uploading this to my new site, but I remember spending a fair amount of time on this piece of work, and don't see why it shouldn't be uploaded, albeit with some slight changes.

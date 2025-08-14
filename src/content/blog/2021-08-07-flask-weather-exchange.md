@@ -1,10 +1,10 @@
 ---
-layout: post
 title: "Flask Weather Data Exchange"
-reviewed: 2021-08-07
-tags: professional
-publish: true
-excerpt: "Flask website with encrypted login system, displaying data from BOM API. Made as my last school assignment."
+description: "Flask website with encrypted login system, displaying data from BOM API. Made as my last school assignment."
+pubDate: "2021-08-07"
+updatedDate: "2021-08-07"
+tags: ["professional", "python", "flask", "web development", "school", "API"]
+draft: false
 ---
 
 # Summary

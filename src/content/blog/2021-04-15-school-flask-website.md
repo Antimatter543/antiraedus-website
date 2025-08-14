@@ -1,11 +1,10 @@
 ---
-layout: post
 title: "Basic Flask website"
-modified_date: 2021-07-11
-tags: professional
-publish: true
-excerpt: "A simple flask website made in python that lets the user read/write to a database. Made for a school assignment."
-comments: true 
+description: "A simple flask website made in python that lets the user read/write to a database. Made for a school assignment."
+pubDate: "2021-04-15"
+updatedDate: "2021-07-11"
+tags: ["python", "flask", "web development", "professional", "school"]
+draft: false
 ---
 <!-- Btw, comments is true by default unless you set it to false -->
 # Summary

@@ -1,11 +1,10 @@
 ---
-layout: post
-title: Exploration of Multidimensional Pyramids and Cuboids (Hyperpyramids and Hypercubes) 
-date: 2021-06-06
-modified_date: 2021-06-10
-publish: false
-tags: non-professional 
-excerpt: Playing around with the proportion of volume for an N-dimensional pyramid within an N dimensional cuboid. Tried to figure out the proportion using only my background knowledge and no researching. 
+title: "Exploration of Multidimensional Pyramids and Cuboids (Hyperpyramids and Hypercubes)"
+description: "Playing around with the proportion of volume for an N-dimensional pyramid within an N dimensional cuboid. Tried to figure out the proportion using only my background knowledge and no researching."
+pubDate: "2021-06-06"
+updatedDate: "2021-06-10"
+tags: ["non-professional", "mathematics", "geometry"]
+draft: true
 ---
 NOT  COMPLETE -- YOU KNOW WHAT, ABANDONED TBD. Why are you here!?!? Stop looking! Just read A Mathematician's Lament and begone! AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH
 

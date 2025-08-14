@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "The Demon in the Machine | Book Review"
-date: 2021-07-24
-modified_date: 2021-07-24
-tags: non-professional
-publish: true
-excerpt: "A quick review on The Demon in the Machine, with small tangents on information and competing theories. Fun! "
-comments: false
+description: "A quick review on The Demon in the Machine, with small tangents on information and competing theories. Fun!"
+pubDate: "2021-07-24"
+updatedDate: "2021-07-24"
+tags: ["non-professional", "book review", "physics", "information theory"]
+draft: false
 ---
 Huh!
 For a while, I've had the nudge, the curiosity to delve into chaos theory, information, and how these fit into physics. I hadn't found any good books on these, and The Demon in the Machine by Paul Davies seemed like a good enough thing when I was searching the library, so I picked it up. I am glad I did.

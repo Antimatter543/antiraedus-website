@@ -1,10 +1,10 @@
 ---
-layout: post
 title: "Frame of War"
-modified_date: 2021-05-12
-tags: professional
-publish: true
-excerpt: "First game I've made, using gamemaker (lol). It's pretty hard. You should try it ;) "
+description: "First game I've made, using gamemaker (lol). It's pretty hard. You should try it ;) "
+pubDate: "2019-07-16"
+updatedDate: "2021-05-12"
+tags: ["gamedev", "professional"]
+draft: false
 ---
 
 <h3> Summary </h3>

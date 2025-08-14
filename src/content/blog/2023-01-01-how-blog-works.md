@@ -1,9 +1,9 @@
 ---
-title:  "My blog notation"
-layout: post
-publish: false
-# draft: true
-comments: true
+title: "My blog notation"
+description: "This is just going to describe how I plan to use this site, as well as some quirks and terminology that I like doing."
+pubDate: "2023-01-01"
+tags: ["meta", "blog"]
+draft: true
 ---
 This is just going to describe how I plan to use this site, as well as some quirks and terminology that I like doing.
 

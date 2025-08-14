@@ -1,8 +1,9 @@
 ---
-title:  "The Woes of Writing Posts"
-layout: post
-publish: true
-excerpt: A small insight on how I sometimes write posts... It's not very chronological!!
+title: "The Woes of Writing Posts"
+description: "A small insight on how I sometimes write posts... It's not very chronological!!"
+pubDate: "2023-02-07"
+tags: ["meta", "writing", "reflection"]
+draft: false
 ---
 
 - meant to be a funny blog kinda in general, self reflective

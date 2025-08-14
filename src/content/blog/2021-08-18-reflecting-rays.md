@@ -1,13 +1,10 @@
 ---
-layout: post
-title: Reflecting Rays, Circular Mirrors and Points
-date: 12-08-2021
-modified_date: 2021-08-26
-publish: true
-tags: professional "rotation matrix" maths vectors light rays matrices "dot product" "implicit differentiation" perpendicular 
-excerpt: A problem about how light would reflect in a perfectly circular mirror (and some interesting questions extending into 3D). Took disproportionately long to make this post relative to how long it takes to solve it. Learnt Mathjax here.
-comments: true
-mathjax: true
+title: "Reflecting Rays, Circular Mirrors and Points"
+description: "A problem about how light would reflect in a perfectly circular mirror (and some interesting questions extending into 3D). Took disproportionately long to make this post relative to how long it takes to solve it. Learnt Mathjax here."
+pubDate: "2021-08-18"
+updatedDate: "2021-08-26"
+tags: ["professional", "mathematics", "physics", "vectors", "matrices", "light rays"]
+draft: false
 ---
 
 # The Original Question
