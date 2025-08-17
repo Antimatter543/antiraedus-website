@@ -103,14 +103,14 @@ const categoryColors = {
   }
   
   .back-link a {
-    color: #64ffda;
+    color: var(--primary-color);
     text-decoration: none;
     font-size: 0.9rem;
     transition: color 0.3s ease;
   }
   
   .back-link a:hover {
-    color: #4ecdc4;
+    opacity: 0.8;
   }
   
   .creative-header {
@@ -138,20 +138,20 @@ const categoryColors = {
   }
   
   .publish-date {
-    color: #666;
+    color: var(--color-text-dim);
     font-size: 0.9rem;
   }
   
   .creative-header h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    color: #333;
+    color: var(--color-heading);
     line-height: 1.2;
   }
   
   .creative-description {
     font-size: 1.2rem;
-    color: #666;
+    color: var(--color-text-alt);
     line-height: 1.6;
     max-width: 600px;
     margin: 0 auto;
@@ -160,14 +160,14 @@ const categoryColors = {
   .creative-content {
     line-height: 1.8;
     font-size: 1.1rem;
-    color: #333;
+    color: var(--color-text);
     margin-bottom: 3rem;
   }
   
   .creative-content h2 {
     margin-top: 2.5rem;
     margin-bottom: 1rem;
-    color: #333;
+    color: var(--color-heading);
   }
   
   .creative-content p {
@@ -175,12 +175,12 @@ const categoryColors = {
   }
   
   .creative-content blockquote {
-    border-left: 4px solid #64ffda;
+    border-left: 4px solid var(--primary-color);
     padding-left: 1.5rem;
     margin: 2rem 0;
     font-style: italic;
-    color: #555;
-    background: #f8f9fa;
+    color: var(--color-text-alt);
+    background: var(--color-bg-alt);
     padding: 1.5rem;
     border-radius: 0 8px 8px 0;
   }
@@ -192,10 +192,11 @@ const categoryColors = {
   }
   
   .creative-content code {
-    background: #f4f4f4;
+    background: var(--color-bg-alt);
     padding: 0.2rem 0.4rem;
     border-radius: 4px;
     font-size: 0.9em;
+    color: var(--color-text);
   }
   
   .creative-content pre code {
@@ -206,13 +207,13 @@ const categoryColors = {
   .creative-tags {
     margin-top: 3rem;
     padding-top: 2rem;
-    border-top: 1px solid #eaeaea;
+    border-top: 1px solid var(--color-border);
     text-align: center;
   }
   
   .creative-tags h3 {
     margin-bottom: 1rem;
-    color: #333;
+    color: var(--color-heading);
   }
   
   .tag-list {
@@ -225,7 +226,7 @@ const categoryColors = {
   .tag {
     display: inline-block;
     padding: 0.4rem 0.8rem;
-    background: linear-gradient(135deg, #64ffda, #4ecdc4);
+    background: var(--primary-color);
     color: white;
     border-radius: 20px;
     font-size: 0.85rem;
@@ -235,7 +236,7 @@ const categoryColors = {
   .creative-footer {
     margin-top: 4rem;
     padding-top: 2rem;
-    border-top: 1px solid #eaeaea;
+    border-top: 1px solid var(--color-border);
   }
   
   .navigation-links {
@@ -245,14 +246,14 @@ const categoryColors = {
   }
   
   .nav-link {
-    color: #64ffda;
+    color: var(--primary-color);
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: opacity 0.3s ease;
   }
   
   .nav-link:hover {
-    color: #4ecdc4;
+    opacity: 0.8;
   }
   
   @media (max-width: 768px) {
