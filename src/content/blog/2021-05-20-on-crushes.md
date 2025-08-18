@@ -5,6 +5,7 @@ pubDate: "2021-05-21"
 updatedDate: "2021-06-09"
 tags: ["non-professional", "gold", "relationships", "survey"]
 draft: false
+heroImage: "blog/spacex.jpg"
 ---
 Warning: Contains swears.
 Edit from the future 7/02/23 me here speaking: I was considering not uploading this to my new site, but I remember spending a fair amount of time on this piece of work, and don't see why it shouldn't be uploaded, albeit with some slight changes.
@@ -20,7 +21,7 @@ Edit from the future 7/02/23 me here speaking: I was considering not uploading t
 
 I implore you to look around.
 
-<img src="/assets/spacex.jpg" alt="Image of Spacex rocket trails.">
+<img src="/blog/spacex.jpg" alt="Image of Spacex rocket trails.">
 
 The phone or computer you're reading this on; its circuitry, the software, the UI. The building you're in, the roads outside, the internet, cities, nations. Schools of education and all the knowledge in the world; it was all founded by humanity. You have weapons that can end civilisation, and rockets that can expand them.
 
@@ -32,7 +33,7 @@ This only came to my mind after reading Love Is War. *What*. My world perspectiv
 ## Rationale - "Why are you doing this?"
 Given that humanity has only reached this point by the consistent fornification (I just mean 'fucking' here) over a large period of time, it suggests that the future of humanity is also reliant on this process. Thus, the entire topic of attraction actually appears to be quite an important one - one that is often thrown under the rug and deemed private or sensitive whathaveyou. "Shouldn't it stay private?" Alright, let's just ignore [40-50% divorce rates](https://www.wf-lawyers.com/divorce-statistics-and-facts/#:~:text=Almost%2050%20percent%20of%20all,first%20marriages%20end%20in%20divorce.) [this source](https://www.apa.org/topics/divorce-child-custody) and [this source](https://www.abs.gov.au/statistics/people/people-and-communities/marriages-and-divorces-australia/latest-release) and the fact that (assuming they want a partner) people often have to have multiple casual/serious relationships before they can find a suitable long-term partner, if they ever find one?
 
-<img src="/assets/horni.PNG" alt="A great timeline image drawn by me in paint." width="90%">
+<img src="/blog/horni.PNG" alt="A great timeline image drawn by me in paint." width="90%">
 <small> Also this only considers humans/close human relatives. I'm not even considering *literally all other known Earthian evolution*. </small>
 
 And fair play to that, but... Shouldn't this topic be more openly discussed in public forums, i.e places of public discussion? Should the science and psychology of attraction/crushes/love not be taught in schools for at least a bit, just like sex education is?
