@@ -34,6 +34,14 @@ The site uses Astro's content collections system for structured content:
 ### Components
 - `src/components/`: Reusable Astro components for sections (Hero, About, Projects, Contact, Navbar, Footer)
 - `src/layouts/`: Base layouts including main Layout.astro with global styles and metadata
+  - `src/layouts/BlogPost.astro`: Legacy blog post layout (not currently used)
+
+### Blog Post Rendering
+**Important**: Blog posts are rendered using the dynamic page template at `src/pages/blog/[slug].astro`, NOT the `BlogPost.astro` layout. This template handles:
+- Hero image display (`.featured-image` class)
+- Blog metadata and tags
+- Content rendering
+- Navigation back to blog listing
 
 ### Utilities
 - `src/utils/projects.ts`: Helper functions for working with project data including filtering, sorting, and formatting

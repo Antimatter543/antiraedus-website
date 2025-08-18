@@ -1,10 +1,11 @@
 ---
 title: "Short Story: Shadow of Oneself"
-description: "This was a little short story I made for my Year 11 'short story' (more flash fiction) exam. I hated that test - How is a short story only 800-1000 words?? I also had to extract this idea from a stimulus about some normal family at a dinner table. Safe to say I er... Exercised my creative ability on it ;)"
+description: "This was a little short story I made for my Year 11 'short story' (more flash fiction) exam. I hated that test - How is a short story only 800-1000 words?? YOU CAN'T DO ANYTHING WITH THAT. I also had to extract this idea from a stimulus about some normal family at a dinner table. Safe to say I er... Exercised my creative ability on it :)"
 pubDate: "2020-09-16"
 updatedDate: "2021-06-10"
 tags: ["non-professional", "creative writing", "short story"]
 draft: false
+heroImage: "blog/heroImages/hall.png"
 ---
 <h1 style="text-align:center;"> Shadow of Oneself </h1>
 <br>

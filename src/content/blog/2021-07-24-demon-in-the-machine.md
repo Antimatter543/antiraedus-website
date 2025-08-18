@@ -29,7 +29,7 @@ Entering a small tangent now, competing theories A and B will predict identical 
 
 Like, when everybody was all Newton this, Newton that, the pesky problem of Mercury's orbit (precession of Mercury), just slightly disobedied the laws he found, (a discrepency of 43 seconds (angle) per century), nobody had a clue why. For the more accurate theory to appear, someone (his name might've been Einstein - he was the first to do it, some others were kinda close though), must've climbed down the assumptions that Newton's laws made and build his own theory. Of Relativity. Which correctly predicted Mercury's precession.
 Obviously, relativity had other consequences, but just to correct this small misprediction in data required a completely new and radical change in the way we think about gravity. Crazy! There was a Feynmen video about this, but I couldn't find it.
-![Image of competing theories](/assets/random/competingtheories.png)
+![Image of competing theories](/blog/random/competingtheories.png)
 
 Maybe this is the way forward? Might not, who knows. But it's still interesting. 
 

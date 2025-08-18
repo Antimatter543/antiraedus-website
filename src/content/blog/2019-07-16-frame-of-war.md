@@ -3,8 +3,9 @@ title: "Frame of War"
 description: "First game I've made, using gamemaker (lol). It's pretty hard. You should try it ;) "
 pubDate: "2019-07-16"
 updatedDate: "2021-05-12"
-tags: ["gamedev", "professional"]
+tags: ["gamedev", "old", "school"]
 draft: false
+heroImage: "/blog/frameofwar/level3.png"
 ---
 
 <h3> Summary </h3>
@@ -17,13 +18,13 @@ The first game I made (used Gamemaker, not a programming language), from 2019. <
 
 
 <h3> Post </h3>
-<img src="/assets/frameofwar/entryimg.PNG" alt="Home screen">
+<img src="/blog/frameofwar/entryimg.PNG" alt="Home screen">
 
 During my second year of realising that a thing called **programming** existed, one of our school assignments was to make a game. Now, almost everybody in the class didn't even bother making the most basic platformer which was enough to get an A, but, who am I to care for a grade?
 If I'm gonna spend time doing something, you best believe I'm gonna enjoy the final product. 
 
 And thus, Frame of War was made (I might've been playing a lot of Warframe at the time). 
-<img src="/assets/frameofwar/level3.png">
+<img src="/blog/frameofwar/level3.png">
 
 It's the first game I've ever made, and it's also annoying to beat. Below is a video of me completing it. 3:05 if you want to get to the good part.
 
@@ -42,9 +43,11 @@ Boss music from Fatima (Stein;s Gate). Coincidentally, if you (laserless) shoot 
 
 If you want to try it yourself, download the exe. There's a version where you use arrow keys to move, and another where you use the mouse.
 
-<a href="/assets/frameofwar/Frame of War Mouse Move - Yuvraj Fowdar.exe"> Click here for the mouse control version </a>
+<!-- <a href="/blog/frameofwar/Frame of War Mouse Move"> Click here for the mouse control version </a> -->
 
-<a href="/assets/frameofwar/Frame Of War.exe"> Click here for the arrow key version. </a>
+<!-- <a href="/blog/frameofwar/Frame Of War.exe"> Click here for the arrow key version. </a> -->
+
+<span style="color:blue"> Future Anti here; they're somewhere online! If you actually want to try the game just leave a comment and I'll find them again for you :). I just can't be fucked breaking my momentum right now to do this. </span>.
 
 
 Yes, that sounds like a virus. No, it's probably not a virus. Yes, if your antivirus goes haywire just listen to it. Maybe there's a way I can host it on the website?
