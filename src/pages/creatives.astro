@@ -22,7 +22,7 @@ const creativesGrouped = categories.reduce((acc, category) => {
 <Layout title="Creatives | Antiraedus" description="Poems, stories, quotes, and thoughts">
   <div class="creatives-container">
     <h1 class="creatives-title">Creatives</h1>
-    <p class="creatives-intro">A collection of poems, short stories, quotes, and expanded thoughts.</p>
+    <p class="creatives-intro">A collection of less strucutred, and more liberal thoughts. Perhaps the seeds of ideas?</p>
     
     <div class="category-tabs">
       <button class="tab-button active" data-category="all">All</button>
@@ -115,6 +115,7 @@ const creativesGrouped = categories.reduce((acc, category) => {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 2rem;
+    justify-items: center;
   }
   
   .creative-card {
