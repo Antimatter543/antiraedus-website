@@ -4,6 +4,7 @@ description: "A small insight on how I sometimes write posts... It's not very ch
 pubDate: "2023-02-07"
 tags: ["meta", "writing", "reflection"]
 draft: false
+heroImage: "/images/projects/soulsync.webp"
 ---
 
 - meant to be a funny blog kinda in general, self reflective

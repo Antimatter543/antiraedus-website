@@ -5,6 +5,7 @@ pubDate: "2021-08-07"
 updatedDate: "2021-08-07"
 tags: ["professional", "python", "flask", "web development", "school", "API"]
 draft: false
+heroImage: "/images/projects/flaskweather2.png"
 ---
 
 # Summary

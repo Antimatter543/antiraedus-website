@@ -5,6 +5,7 @@ pubDate: "2021-04-15"
 updatedDate: "2021-07-11"
 tags: ["python", "flask", "web development", "professional", "school"]
 draft: false
+heroImage: "/images/projects/flaskweather.png"
 ---
 <!-- Btw, comments is true by default unless you set it to false -->
 # Summary
