@@ -77,7 +77,10 @@ Create new `.md` files in `src/content/blog/` with proper frontmatter:
 title: "Your Post Title"
 description: "Brief description"
 pubDate: "2024-01-01"
-tags: ["tag1", "tag2"]
+updatedDate: "2024-01-02"  # Optional - when post was last updated
+heroImage: "/blog/hero-image.jpg"  # Optional - hero image for the post
+tags: ["tag1", "tag2"]  # Optional - defaults to empty array
+draft: false  # Optional - defaults to false, set true to hide from production
 ---
 ```
 
