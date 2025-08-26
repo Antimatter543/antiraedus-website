@@ -5,6 +5,7 @@ pubDate: "2021-08-18"
 updatedDate: "2021-08-26"
 tags: ["professional", "mathematics", "physics", "vectors", "matrices", "light rays"]
 draft: false
+heroImage: "/blog/maths/unknowncircle.png"
 ---
 
 # The Original Question
@@ -41,7 +42,7 @@ The way I will solve it is by actually explaining the concepts before using them
 # Solving
 Firstly, let's understand what's actually going on here by drawing a nice diagram. I'm going to be using desmos here with some very nice snipping tool skills (it was either that or my hand-drawn items).
 
-![Diagram of circle and rays (unsolved)](/assets/maths/unknowncircle.png)
+![Diagram of circle and rays (unsolved)](/blog/maths/unknowncircle.png)
 
 Now we know what's actually going on.
 

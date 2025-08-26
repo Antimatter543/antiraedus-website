@@ -5,9 +5,9 @@ image: "/images/projects/questr.png"
 imageAlt: "Questr web application interface showing task management with RPG elements"
 technologies: ["React", "Python", "FastAPI", "PostgreSQL", "AWS", "Docker", "Terraform", "AWS Cognito"]
 hasWriteup: false
-externalUrl: "https://github.com/CSSE6400/2025_P2_Questr"
+externalUrl: "https://www.youtube.com/watch?v=LneaBOlSp8M"
 liveUrl: "https://questr.g11.csse6400.xyz"
-githubUrl: "https://github.com/CSSE6400/2025_P2_Questr"
+githubUrl: "https://www.youtube.com/watch?v=LneaBOlSp8M"
 featured: true
 status: "completed"
 startDate: "2025-04-01"
