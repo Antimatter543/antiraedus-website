@@ -23,12 +23,8 @@ collides with the circular mirror (excluding the reflected ray's initial positio
 This is a calculator allowed question (I'm thinking of a TI-84 graphics calculator when I say this)
 Note on original question. [^1]
 
-<h2> Table of Contents </h2>
+## Contents
 
-<ol>
-</ol>
-* Table of Contents (this text is replaced with the table of contents)
-{:toc}
 
 # Preface
 I had the idea for this question just after my final internal specialist exam (specialist is equivalent to Maths C or whatever your extended x2 maths is). However, this question isn't really a specialist question as much as a question that involves some topics covered in the subject. I implore you to try it out! You can use google, but try to search for sub-problems instead of the true problem instead.

@@ -215,44 +215,136 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
     border-bottom-color: var(--primary-color);
   }
 
-  /* Table of Contents styling */
-  .blog-content > ul:first-of-type {
-    background-color: var(--color-bg-alt);
+  /* Table of Contents styling - targets TOC generated after Contents heading */
+  .blog-content h1:is([id*="content"], [id*="toc"]) + ul,
+  .blog-content h2:is([id*="content"], [id*="toc"]) + ul,
+  .blog-content h3:is([id*="content"], [id*="toc"]) + ul {
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
     border-left: 4px solid var(--primary-color);
-    padding: 1.5rem 2rem;
+    padding: 2rem;
     margin: 2rem 0;
-    border-radius: 0 8px 8px 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    position: relative;
+    list-style: none !important;
+    padding-left: 0 !important;
   }
 
-  .blog-content > ul:first-of-type::before {
-    content: "📋 Table of Contents";
+  /* Override any default list styling specifically for TOC */
+  .blog-content h1:is([id*="content"], [id*="toc"]) + ul,
+  .blog-content h2:is([id*="content"], [id*="toc"]) + ul,
+  .blog-content h3:is([id*="content"], [id*="toc"]) + ul {
+    list-style-type: none !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  /* More aggressive TOC targeting - catch TOCs that might be generated in different positions */
+  .blog-content ul:has(li > a[href^="#"]):first-child,
+  .blog-content h1 + ul:has(li > a[href^="#"]),
+  .blog-content h2 + ul:has(li > a[href^="#"]),
+  .blog-content h3 + ul:has(li > a[href^="#"]) {
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--primary-color);
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    position: relative;
+    list-style: none !important;
+    padding-left: 0 !important;
+  }
+
+  /* Style the pseudo-element for these alternate TOCs too */
+  .blog-content ul:has(li > a[href^="#"]):first-child::before,
+  .blog-content h1 + ul:has(li > a[href^="#"])::before,
+  .blog-content h2 + ul:has(li > a[href^="#"])::before,
+  .blog-content h3 + ul:has(li > a[href^="#"])::before {
+    content: "📚 Table of Contents";
     display: block;
-    font-weight: 600;
-    color: var(--color-heading);
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1.25rem;
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
   }
 
-  .blog-content > ul:first-of-type li {
-    margin-bottom: 0.75rem;
+  .blog-content h1:is([id*="content"], [id*="toc"]) + ul::before,
+  .blog-content h2:is([id*="content"], [id*="toc"]) + ul::before,
+  .blog-content h3:is([id*="content"], [id*="toc"]) + ul::before {
+    content: "📚 Table of Contents";
+    display: block;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1.25rem;
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
   }
 
-  .blog-content > ul:first-of-type a {
+  .blog-content h1:is([id*="content"], [id*="toc"]) + ul li,
+  .blog-content h2:is([id*="content"], [id*="toc"]) + ul li,
+  .blog-content h3:is([id*="content"], [id*="toc"]) + ul li {
+    margin-bottom: 0.85rem;
+    padding-left: 1.5rem;
+    position: relative;
+    list-style: none;
+  }
+
+  .blog-content h1:is([id*="content"], [id*="toc"]) + ul li::before,
+  .blog-content h2:is([id*="content"], [id*="toc"]) + ul li::before,
+  .blog-content h3:is([id*="content"], [id*="toc"]) + ul li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+    transition: transform 0.2s ease;
+  }
+
+  .blog-content h1:is([id*="content"], [id*="toc"]) + ul li:hover::before,
+  .blog-content h2:is([id*="content"], [id*="toc"]) + ul li:hover::before,
+  .blog-content h3:is([id*="content"], [id*="toc"]) + ul li:hover::before {
+    transform: translateX(4px);
+  }
+
+  .blog-content h1:is([id*="content"], [id*="toc"]) + ul a,
+  .blog-content h2:is([id*="content"], [id*="toc"]) + ul a,
+  .blog-content h3:is([id*="content"], [id*="toc"]) + ul a {
     color: var(--color-text);
     text-decoration: none;
+    font-weight: 500;
     border-bottom: 1px solid transparent;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
+    display: inline-block;
   }
 
-  .blog-content > ul:first-of-type a:hover {
+  .blog-content h1:is([id*="content"], [id*="toc"]) + ul a:hover,
+  .blog-content h2:is([id*="content"], [id*="toc"]) + ul a:hover,
+  .blog-content h3:is([id*="content"], [id*="toc"]) + ul a:hover {
     color: var(--primary-color);
     border-bottom-color: var(--primary-color);
+    transform: translateX(2px);
   }
 
-  .blog-content > ul:first-of-type ul {
+  .blog-content h1:is([id*="content"], [id*="toc"]) + ul ul,
+  .blog-content h2:is([id*="content"], [id*="toc"]) + ul ul,
+  .blog-content h3:is([id*="content"], [id*="toc"]) + ul ul {
     margin-top: 0.5rem;
-    margin-bottom: 0;
-    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--color-border);
+    list-style: none;
+  }
+
+  .blog-content h1:is([id*="content"], [id*="toc"]) + ul ul li::before,
+  .blog-content h2:is([id*="content"], [id*="toc"]) + ul ul li::before,
+  .blog-content h3:is([id*="content"], [id*="toc"]) + ul ul li::before {
+    content: "•";
+    color: var(--color-text-alt);
   }
   
   .blog-tags {

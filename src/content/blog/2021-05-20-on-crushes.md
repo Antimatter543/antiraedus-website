@@ -11,12 +11,8 @@ Warning: Contains swears.
 Edit from the future 7/02/23 me here speaking: I was considering not uploading this to my new site, but I remember spending a fair amount of time on this piece of work, and don't see why it shouldn't be uploaded, albeit with some slight changes.
 
 
-<h2> Table of Contents </h2>
+## Contents
 
-<ol>
-</ol>
-* Table of Contents (this text is replaced with the table of contents)
-{:toc}
 ## Introduction 
 
 I implore you to look around.

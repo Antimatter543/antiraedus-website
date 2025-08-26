@@ -10,6 +10,9 @@ heroImage: "/images/projects/soulsync.webp"
 - meant to be a funny blog kinda in general, self reflective
 - can post on site :P 
 - is different to the usual style -- very little refinement done!
+
+
+
 ## The Post
 - I want to share my ideas with the world
 - Sometimes, I enter a sort of writing frenzy and can bust out 1000 words relating to a topic set within 20-30 minutes. And they're all in bullet points, semi chaotic, ideas everywhere.

@@ -8,7 +8,7 @@ import rehypeKatex from 'rehype-katex';
 export default defineConfig({
   base: '/',
   markdown: {
-    remarkPlugins: [remarkMath, [remarkToc, { heading: ':toc', tight: true }]],
+    remarkPlugins: [remarkMath, [remarkToc, { heading: 'Contents'}]],
     rehypePlugins: [rehypeKatex],
     shikiConfig: {
       theme: 'one-dark-pro',

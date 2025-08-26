@@ -26,17 +26,13 @@ Here's our github repo: <a href="https://github.com/chrisrabe/ai-sports-2021"> A
 Silent (team leader) also made his own reflection type thing: <a href="https://docs.google.com/document/d/1ozkP3XgFPLWy1wzUtgNeFF_y5ijLSH4Aw17bPBEn7fM/"> Here it is. </a> See May 1st Logs for my definitely not cherrypicked praise hehe.
 
 
-<h2> Table of Contents </h2>
 
-<ol>
-</ol>
-* Table of Contents (this text is replaced with the table of contents)
-{:toc}
 
 ## Background Information 
 <a href="https://www.gocoder.one/aisports"> Coderone </a> is a (recent) startup company who so far hosts AI competitions. In December 2020, they hosted their first hackathon - a bomberesque game where your bot vs' another bot and wins by having more points than the enemy or letting the enemy die.
 
 <img src="/blog/coderone/oldgame.gif" alt="Gif of the old game">
+
 <small> Gif of the old game. </small>
 
 Unfortunately, I wasn't there for that.
@@ -45,6 +41,7 @@ Instead, the variation of the game when I joined (May 2021) was where your goal 
 Fun.
 
 <img src="/blog/coderone/game.gif" alt="Gif of the game. Not yoinked from Valgrowth's article.">
+
 <small> Gif of the new game. Kill or be killed. </small>
 
 Anyways, I scouted out their previous game's repo and inspected the #1 agent's code (Jigglybluff). Safe to say I did not know what I was looking at (I think that'd be the case for most of the repos I looked at). In hindsight it looks like they wrote for a bunch of special cases (i.e spam if statements), which works well when you have good knowledge of the game. 
@@ -174,6 +171,7 @@ Cya!
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/XJo87YbiHUo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
+<br>
 <small>
 Bonus: A video of me playing trying to beat the bot. I tried 5 different times to get a good video, but messed up 5 different ways. Got onestepped in one, but this one was just... Pitiful for me. Oof. Decided to cut my losses and just upload it. </small>
 
