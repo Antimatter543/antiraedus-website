@@ -65,7 +65,7 @@ const {
 		--secondary-color: #7c3aed;
 		--accent-color: #ea580c;
 		
-		--color-bg: #ffffff;
+		--color-bg: ##f7f2ec;
 		--color-bg-alt: #f8fafc;
 		--color-bg-card: #f1f5f9;
 		--color-text: #1e293b;
@@ -144,5 +144,20 @@ const {
 	.content a:visited {
 		color: var(--secondary-color);
 		border-bottom-color: var(--secondary-color);
+	}
+	
+	/* Blockquote styling */
+	blockquote {
+		margin: 1.5rem 0;
+		padding: 1rem 0 1rem 1.5rem;
+		border-left: 4px solid var(--accent-color);
+		background: transparent;
+		font-style: italic;
+		color: var(--color-text-alt);
+		position: relative;
+	}
+	
+	blockquote p {
+		margin: 0;
 	}
 </style>
